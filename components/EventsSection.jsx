@@ -34,7 +34,7 @@ const events = [
     {
         number: "04",
         name: "Tinkercase",
-        field: "Robotics",
+        field: "Core",
         image: "/images/events/tinkercase.jpeg",
         description: "A hardware showcase where creativity meets engineering, turning circuits, prototypes, and bold ideas into real-world marvels.",
         accent: "from-[#153567] via-[#141a3e] to-[#07101f]",
@@ -61,7 +61,7 @@ const events = [
     {
         number: "07",
         name: "Techweek",
-        field: "Techfest",
+        field: "SIG",
         image: "/images/events/techweek.JPG",
         description: "A flagship platform for innovation, learning, and collaboration across machine learning, robotics, web design, programming, and graphic design.",
         accent: "from-[#28335f] via-[#1b1c3e] to-[#07101f]",
@@ -70,7 +70,7 @@ const events = [
     {
         number: "08",
         name: "Invictus",
-        field: "Core",
+        field: "Techfest",
         image: "/images/events/invictus.JPG",
         description: "DTU's annual technical festival, carrying forward the legacy of IEEE DTU's Troika through ambitious builds, competitions, and engineering challenges.",
         accent: "from-[#123f53] via-[#102b39] to-[#07101f]",
@@ -133,7 +133,7 @@ const events = [
     {
         number: "15",
         name: "Digithon",
-        field: "Tech",
+        field: "Core",
         image: "/images/events/digithon.JPG",
         description: "A hardware design challenge that puts your Verilog skills to work through real-time problems, circuit optimization, and functional builds.",
         accent: "from-[#19476b] via-[#172b4b] to-[#07101f]",
