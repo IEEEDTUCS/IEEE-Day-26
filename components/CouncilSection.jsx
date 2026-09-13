@@ -66,7 +66,7 @@ export default function CouncilSection() {
 
         <div
           ref={carouselRef}
-          className="-mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-6 pt-3 [scrollbar-width:none] sm:-mx-10 sm:px-10 lg:-mx-16 lg:gap-8 lg:px-16 [&::-webkit-scrollbar]:hidden"
+          className="-mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-[11vw] pb-6 pt-3 [scroll-padding-inline:11vw] [scrollbar-width:none] sm:-mx-10 sm:px-10 sm:[scroll-padding-inline:2.5rem] lg:-mx-16 lg:gap-8 lg:px-16 lg:[scroll-padding-inline:4rem] [&::-webkit-scrollbar]:hidden"
         >
           {council.map(([image, name, position, instagram, linkedin]) => (
             <article data-reveal key={`${name}-${position}`} className="group relative min-w-[min(78vw,285px)] snap-start overflow-hidden rounded-2xl border border-white/10 bg-panel p-4 transition duration-500 hover:-translate-y-2 hover:border-electric hover:shadow-[0_0_0_1px_rgba(32,217,255,.25),0_0_42px_rgba(32,217,255,.2)] sm:min-w-[310px] lg:min-w-[calc((100%-72px)/4)]">

@@ -5,6 +5,8 @@ import ChaptersSection from "../components/ChaptersSection";
 import FacultySection from "../components/FacultySection";
 import CouncilSection from "../components/CouncilSection";
 import FooterSection from "../components/FooterSection";
+import PublicationsSection from "../components/PublicationsSection";
+import TestimonialsSection from "../components/TestimonialsSection";
 import SiteNav from "../components/SiteNav";
 
 export default function Home() {
@@ -18,6 +20,8 @@ export default function Home() {
       <ChaptersSection />
       <FacultySection />
       <CouncilSection />
+      <PublicationsSection />
+      <TestimonialsSection />
       <FooterSection />
       </main>
     </>

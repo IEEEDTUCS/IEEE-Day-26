@@ -261,7 +261,7 @@ export default function EventsSection() {
                     onMouseLeave={() => setIsPaused(false)}
                     onFocus={() => setIsPaused(true)}
                     onBlur={() => setIsPaused(false)}
-                    className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-6 pt-5 [scrollbar-width:none] sm:-mx-10 sm:px-10 lg:-mx-16 lg:px-16 [&::-webkit-scrollbar]:hidden"
+                    className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[11vw] pb-6 pt-5 [scroll-padding-inline:11vw] [scrollbar-width:none] sm:-mx-10 sm:px-10 sm:[scroll-padding-inline:2.5rem] lg:-mx-16 lg:px-16 lg:[scroll-padding-inline:4rem] [&::-webkit-scrollbar]:hidden"
                 >
                     {events.map((event) => {
                         const Card = event.link ? "a" : "article";
