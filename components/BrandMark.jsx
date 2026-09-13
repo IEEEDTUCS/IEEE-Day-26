@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function BrandMark() {
   return (
-    <a href="#top" aria-label="IEEE DTU home" className="group flex items-center gap-3">
+    <a href="/#top" aria-label="IEEE DTU home" className="group flex items-center gap-3">
       <Image
         src="/logos/ieee_dtu_white.png"
         alt="IEEE DTU"

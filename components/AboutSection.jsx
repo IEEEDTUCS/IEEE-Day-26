@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const highlights = [
-  ["450+", "Active members"],
-  ["40+", "Years of legacy"],
-  ["01", "Community, one direction"],
+  ["450+", "Members"],
+  ["15+", "Yearly Events"],
+  ["2.5K+", "Alumni"],
 ];
 
 export default function AboutSection() {
@@ -41,7 +41,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="relative flex min-h-screen items-center overflow-hidden bg-ink py-24 sm:py-32">
+    <section data-reveal ref={sectionRef} id="about" className="relative flex min-h-screen items-center overflow-hidden bg-ink py-24 sm:py-32">
       <div className="absolute left-[-18%] top-1/2 h-[420px] w-[420px] -translate-y-1/2 rounded-full bg-electric/[.06] blur-[120px]" />
       <div className="mx-auto grid w-full max-w-[1440px] gap-14 px-6 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-24 lg:px-16">
         <div className={`transition-all duration-[1600ms] ease-out ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
@@ -51,16 +51,16 @@ export default function AboutSection() {
           <h2 className="max-w-xl text-4xl font-bold leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl">
             A legacy of <span className="text-electric">building forward.</span>
           </h2>
-          <p className="mt-7 max-w-lg text-sm leading-7 text-muted sm:text-base">
-            IEEE DTU is Delhi Technological University&apos;s largest technical society, with 450+ active members, a 40+ year legacy, and a reputation for turning curiosity into nationally recognized innovation.
+          <p className="mt-7 max-w-lg text-md leading-7 text-muted sm:text-base">
+            IEEE DTU is Delhi Technological University&apos;s largest technical society, with a <span className="text-electric/80">40+ year legacy</span>, and a reputation for turning curiosity into <span className="text-electric/80">internationally recognized innovation</span>.
           </p>
-          <p className="mt-4 max-w-lg text-sm leading-7 text-muted/70">
+          <p className="mt-4 max-w-lg text-md leading-7 text-muted/90">
             From hands-on initiatives to flagship events, we bring together students who want to learn deeply, collaborate openly, and make technology matter.
           </p>
 
           <div className="mt-10 grid max-w-xl grid-cols-3 border-y border-white/10 py-5">
             {highlights.map(([value, label]) => (
-              <div key={label} className="border-r border-white/10 pr-3 last:border-0 sm:pr-5">
+              <div key={label} className="sm:pr-5">
                 <p className="text-2xl font-bold tracking-tight text-white sm:text-3xl">{value}</p>
                 <p className="mt-2 max-w-[100px] text-[9px] font-semibold uppercase leading-4 tracking-[0.13em] text-muted">{label}</p>
               </div>
@@ -80,10 +80,7 @@ export default function AboutSection() {
               style={{ transform: `translateY(${parallaxOffset}px) scale(1.08)` }}
               className="object-cover object-center transition-transform duration-300 ease-out hover:scale-[1.12] motion-reduce:transform-none"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent" />
-            <p className="absolute bottom-5 left-5 text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">Make an impact</p>
           </div>
-          <span className="absolute -bottom-6 -right-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-electric/70 sm:-right-8">01 / Who we are</span>
         </div>
       </div>
     </section>

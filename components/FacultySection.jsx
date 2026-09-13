@@ -12,9 +12,9 @@ export default function FacultySection() {
     <section id="connect" className="relative overflow-hidden bg-ink py-24 sm:py-32">
       <div className="absolute right-[-12%] top-1/3 h-[420px] w-[420px] rounded-full bg-electric/[.05] blur-[120px]" />
       <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16">
-        <div className="mb-12 max-w-2xl">
+        <div data-reveal className="mb-12 max-w-2xl">
           <p className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.25em] text-electric">
-            <span className="h-px w-8 bg-electric" /> The support system
+            <span className="h-px w-8 bg-electric" /> Our Faculty Mentors
           </p>
           <h2 className="text-4xl font-bold leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl">
             Guided by experience, <span className="text-electric">driven by curiosity.</span>
@@ -52,7 +52,7 @@ export default function FacultySection() {
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {advisors.map(([, name, role, image]) => (
-            <article key={name} className="group flex min-h-[310px] flex-col items-center justify-center rounded-xl border border-white/10 bg-white/[.025] px-6 py-8 text-center transition duration-500 hover:-translate-y-1 hover:border-electric/45 hover:bg-white/[.04] hover:shadow-[0_0_36px_rgba(32,217,255,.12)]">
+            <article data-reveal key={name} className="group flex min-h-[310px] flex-col items-center justify-center rounded-xl border border-white/10 bg-white/[.025] px-6 py-8 text-center transition duration-500 hover:-translate-y-1 hover:border-electric/45 hover:bg-white/[.04] hover:shadow-[0_0_36px_rgba(32,217,255,.12)]">
               <div className="relative h-28 w-28 overflow-hidden rounded-full border-2 border-electric/45 bg-panel shadow-[0_0_28px_rgba(32,217,255,.16)] transition duration-500 group-hover:scale-105 group-hover:border-electric">
                 <Image
                   src={image}
