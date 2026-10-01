@@ -1,37 +1,32 @@
-import { useEffect } from "react";
-import SiteNav from "./components/SiteNav";
-import ScrollReveal from "./components/ScrollReveal";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Events from "./pages/Events";
-import FAQ from "./pages/FAQ";
-import Gallery from "./pages/Gallery";
+import SiteNav from "./components/layout/SiteNav";
+import Footer from "./components/layout/Footer";
+import Hero from "./components/sections/Hero";
+import About from "./components/sections/About";
+import Events from "./components/sections/Events";
+import Speakers from "./components/sections/Speakers";
+import Schedule from "./components/sections/Schedule";
+import Sponsors from "./components/sections/Sponsors";
+import Gallery from "./components/sections/Gallery";
+import Faqs from "./components/sections/Faqs";
+import RegisterCta from "./components/sections/RegisterCta";
+import { useLenis } from "./motion/useLenis";
 
 export default function App() {
-  useEffect(() => {
-    // If URL has a hash or section pathname, scroll into view
-    const hash = window.location.hash.replace("#", "");
-    const pathname = window.location.pathname.replace(/^\//, "").toLowerCase();
-    const targetId = hash || pathname;
-
-    if (targetId && targetId !== "/") {
-      setTimeout(() => {
-        document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
-      }, 150);
-    }
-  }, []);
+  useLenis();
 
   return (
-    <div className="flex min-h-screen flex-col bg-ink text-[#f5f8ff]">
-      <ScrollReveal />
+    <div className="flex min-h-screen flex-col">
       <SiteNav />
       <main className="flex-1">
-        <Home />
+        <Hero />
         <About />
         <Events />
-        <FAQ />
+        <Speakers />
+        <Schedule />
+        <Sponsors />
         <Gallery />
+        <Faqs />
+        <RegisterCta />
       </main>
       <Footer />
     </div>

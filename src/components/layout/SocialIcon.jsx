@@ -22,7 +22,11 @@ export default function SocialIcon({ name, size = 15 }) {
   }
 
   if (name === "LinkedIn") {
-    return <span aria-hidden="true" className="text-[10px] font-bold leading-none">in</span>;
+    return (
+      <span aria-hidden="true" className="text-[10px] font-bold leading-none">
+        in
+      </span>
+    );
   }
 
   return (
