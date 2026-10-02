@@ -99,7 +99,7 @@ export default function SiteNav() {
             onClick={handleScrollTo("contact")}
             trailing="↓"
           >
-            Contact Us
+            Register
           </Button>
         </div>
 
