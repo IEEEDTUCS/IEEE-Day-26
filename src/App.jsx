@@ -1,18 +1,21 @@
-import SiteNav from "./components/layout/SiteNav";
-import Footer from "./components/layout/Footer";
-import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
-import Events from "./components/sections/Events";
-import Speakers from "./components/sections/Speakers";
-import Schedule from "./components/sections/Schedule";
-import Sponsors from "./components/sections/Sponsors";
-import Gallery from "./components/sections/Gallery";
-import Faqs from "./components/sections/Faqs";
-import RegisterCta from "./components/sections/RegisterCta";
-import { useLenis } from "./motion/useLenis";
+import { SiteNav, Footer } from "./components/layout";
+import {
+  Hero,
+  About,
+  Events,
+  Speakers,
+  Schedule,
+  Sponsors,
+  Gallery,
+  Faqs,
+  RegisterCta,
+} from "./components/sections";
+import { useLenis } from "./motion";
+import { useInitialScroll } from "./hooks";
 
-export default function App() {
+export function App() {
   useLenis();
+  useInitialScroll();
 
   return (
     <div className="flex min-h-screen flex-col">

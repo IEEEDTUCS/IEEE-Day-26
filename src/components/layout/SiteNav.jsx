@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
-import BrandMark from "./BrandMark";
-import { Button } from "../ui/Button";
-import { scrollToSection } from "../../motion/useLenis";
-import { navLinks, sections } from "../../content/navigation";
+import { BrandMark } from "./BrandMark";
+import { Button } from "../ui";
+import { scrollToSection } from "../../motion";
+import { navLinks, sections } from "../../content";
 
-export default function SiteNav() {
+export function SiteNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const headerRef = useRef(null);
@@ -65,7 +65,7 @@ export default function SiteNav() {
 
         {/* Desktop Navigation */}
         <nav
-          className="hidden items-center gap-7 text-label font-semibold uppercase tracking-[0.08em] text-charcoal md:flex"
+          className="hidden items-center gap-3 text-label font-semibold uppercase tracking-[0.08em] text-charcoal lg:flex xl:gap-7"
           aria-label="Primary navigation"
         >
           {navLinks.map((link) => {
@@ -93,11 +93,12 @@ export default function SiteNav() {
         </nav>
 
         {/* Desktop CTA Action Button - takes straight to footer */}
-        <div className="hidden items-center md:flex">
+        <div className="hidden shrink-0 items-center lg:flex">
           <Button
             href="#contact"
             onClick={handleScrollTo("contact")}
             trailing="↓"
+            className="whitespace-nowrap"
           >
             Register
           </Button>
@@ -109,7 +110,7 @@ export default function SiteNav() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={mobileMenuOpen}
-          className="grid h-11 w-11 place-items-center border border-charcoal text-charcoal transition-colors duration-(--duration-fast) hover:bg-charcoal hover:text-paper md:hidden"
+          className="grid h-11 w-11 place-items-center border border-charcoal text-charcoal transition-colors duration-(--duration-fast) hover:bg-charcoal hover:text-paper lg:hidden"
         >
           {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
@@ -117,7 +118,7 @@ export default function SiteNav() {
 
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="container-page border-t border-silver bg-paper py-4 md:hidden">
+        <div className="container-page border-t border-silver bg-paper py-4 lg:hidden">
           <nav
             className="flex flex-col text-label font-semibold uppercase tracking-[0.08em]"
             aria-label="Mobile navigation"

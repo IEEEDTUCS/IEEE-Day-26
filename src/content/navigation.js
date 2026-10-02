@@ -6,7 +6,7 @@ export const sections = [
   { id: "speakers", label: "Speakers", inNav: true },
   { id: "schedule", label: "Schedule", inNav: true },
   { id: "sponsors", label: "Sponsors", inNav: true },
-  { id: "gallery", label: "Gallery", inNav: false },
+  { id: "gallery", label: "Gallery", inNav: true },
   { id: "faqs", label: "FAQs", inNav: true },
   { id: "register", label: "Register", inNav: false },
   { id: "contact", label: "Contact", inNav: false },

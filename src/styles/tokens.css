@@ -8,6 +8,12 @@
   --color-silver: #d9d9d9;
   --color-steel: #a6a6a6; /* never as text on paper */
 
+  /* Gallery Colours */
+  --color-pit: #1f2120;
+  --color-pit-deep: #161817;
+  --color-track: #45484a;
+  --color-shade: #0e0f0f;
+
   /* Fonts */
   --font-heading: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-body: "Montserrat", system-ui, sans-serif;

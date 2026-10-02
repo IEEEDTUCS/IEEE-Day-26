@@ -24,4 +24,9 @@ export const durations = {
 
 export const stagger = 0.06;
 
+// This is only while in developement
+if (import.meta.env.DEV) {
+  window.__gsap = gsap;
+}
+
 export { gsap, ScrollTrigger, Flip, SplitText, DrawSVGPlugin };

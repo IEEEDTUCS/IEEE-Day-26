@@ -29,14 +29,15 @@ function navHeight() {
 const expoOut = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
 
 // Scrolling functions
-export function scrollToSection(id) {
+export function scrollToSection(id, { immediate = false } = {}) {
   const el = document.getElementById(id);
   if (!el) return;
 
   if (lenis) {
     lenis.scrollTo(el, {
       offset: -navHeight(),
-      duration: durations.jump,
+      immediate,
+      duration: immediate ? 0 : durations.jump,
       easing: expoOut,
     });
     return;

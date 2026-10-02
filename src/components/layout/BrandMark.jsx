@@ -1,6 +1,6 @@
-import { scrollToTop } from "../../motion/useLenis";
+import { scrollToTop } from "../../motion";
 
-export default function BrandMark() {
+export function BrandMark() {
   const handleClick = (e) => {
     e.preventDefault();
     scrollToTop();
@@ -11,7 +11,7 @@ export default function BrandMark() {
       href="#home"
       onClick={handleClick}
       aria-label="IEEE DTU home"
-      className="group flex items-center gap-3"
+      className="group flex shrink-0 items-center gap-3"
     >
       <img
         src="/logos/ieee_dtu_black.png"

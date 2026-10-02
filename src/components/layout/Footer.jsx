@@ -1,9 +1,8 @@
-import SocialIcon from "./SocialIcon";
-import { scrollToSection } from "../../motion/useLenis";
-import { navLinks } from "../../content/navigation";
-import { contacts, socials, venue } from "../../content/contact";
+import { SocialIcon } from "./SocialIcon";
+import { scrollToSection } from "../../motion";
+import { navLinks, contacts, socials, venue } from "../../content";
 
-/** Column heading: paper text over a red accent bar. */
+// Column heading for footer sections
 function ColumnHeading({ children }) {
   return (
     <>
@@ -13,7 +12,7 @@ function ColumnHeading({ children }) {
   );
 }
 
-export default function Footer() {
+export function Footer() {
   const handleScrollTo = (id) => (e) => {
     e.preventDefault();
     scrollToSection(id);

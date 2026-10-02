@@ -1,4 +1,4 @@
-export default function SocialIcon({ name, size = 15 }) {
+export function SocialIcon({ name, size = 15 }) {
   const common = {
     width: size,
     height: size,

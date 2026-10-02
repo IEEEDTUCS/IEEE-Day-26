@@ -3,7 +3,7 @@
 // Fully animated via GSAP in Hero.jsx
 // Drag lines follow strict slope dy/dx = -0.4 (same as car trajectory)
 
-export default function F1Car({ className = "" }) {
+export function F1Car({ className = "" }) {
   return (
     <div
       id="f1-car-container"
