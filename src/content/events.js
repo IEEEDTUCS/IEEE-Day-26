@@ -12,7 +12,7 @@
 
 export const eventsSection = {
   intro:
-    "IEEE Day 2026 runs across two campuses — DTU and GTBIT. The 3D orbit hovers over VIHAAN, our cyber racing mech pilot. Click any telemetry card for the full dossier, or hit Register straight from the card.",
+    "IEEE Day 2026 runs across two campuses — DTU and GTBIT. Click any telemetry card for the full dossier, or hit Register straight from the card.",
   figure: {
     src: "/images/events/mech-pilot.png",
     alt: "VIHAAN, the cyber racing mech pilot rig, standing beneath the event orbit",
