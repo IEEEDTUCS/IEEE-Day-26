@@ -2,11 +2,13 @@
   /* Colours */
   --color-red: #c51216;
   --color-red-deep: #8c0e11;
-  --color-red-bright: #f04a50; /* red TEXT on charcoal only, ≥24px */
+  --color-red-bright: #f04a50;
+  /* red TEXT on charcoal only, ≥24px */
   --color-charcoal: #2b2d2c;
   --color-paper: #f8f8f4;
   --color-silver: #d9d9d9;
-  --color-steel: #a6a6a6; /* never as text on paper */
+  --color-steel: #a6a6a6;
+  /* never as text on paper */
 
   /* Fonts */
   --font-heading: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -34,11 +36,14 @@
 
   /* Radius: hard edges everywhere */
   --radius-none: 0;
-  --radius-dot: 9999px; /* dots and circles only */
+  --radius-dot: 9999px;
+  /* dots and circles only */
 
   /* Spacing extras */
-  --spacing-tile-gap: 0.875rem; /* bento gap, 14px */
-  --spacing-bar: 0.3125rem; /* red underline bar thickness, 5px */
+  --spacing-tile-gap: 0.875rem;
+  /* bento gap, 14px */
+  --spacing-bar: 0.3125rem;
+  /* red underline bar thickness, 5px */
 
   /* Breakpoints */
   --breakpoint-sm: 480px;
@@ -50,18 +55,18 @@
   /* Motion */
   --ease-race: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-snap: cubic-bezier(0.87, 0, 0.13, 1);
-  --duration-fast: 150ms; /* micro: hover, press */
+  --duration-fast: 150ms;
+  /* micro: hover, press */
   --duration-base: 250ms;
-  --duration-ui: 400ms; /* accordion, tabs, menu */
+  --duration-ui: 400ms;
+  /* accordion, tabs, menu */
   --duration-reveal: 750ms;
 }
 
 :root {
-  --gradient-red: linear-gradient(
-    180deg,
-    var(--color-red-deep) 0%,
-    var(--color-red) 100%
-  );
+  --gradient-red: linear-gradient(180deg,
+      var(--color-red-deep) 0%,
+      var(--color-red) 100%);
   --skew-lean: -10deg;
   --container-max: 1440px;
   --container-pad: clamp(1rem, 4vw, 3rem);
@@ -73,6 +78,7 @@ html {
   background: var(--color-paper);
   color: var(--color-charcoal);
 }
+
 body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;

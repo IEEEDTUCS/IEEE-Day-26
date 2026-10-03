@@ -1,139 +1,177 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
-import { Button } from "../ui/Button";
 import { scrollToSection } from "../../motion/useLenis";
 import { gsap, ScrollTrigger } from "../../motion/gsap";
+import { prefersReducedMotion } from "../../motion/useReducedMotion";
+import { useState } from "react";
 import F1Car from "../ui/F1Car";
 
+// ── Event date ───────────────────────────────────────────────────────────────
+const EVENT_DATE = new Date("2026-10-15T09:00:00+05:30");
+
+function pad(n) { return String(n).padStart(2, "0"); }
+
+function useCountdown(target) {
+  const [t, setT] = useState(() => {
+    const diff = target - Date.now();
+    if (diff <= 0) return { d: 0, h: 0, m: 0, s: 0 };
+    const s = Math.floor(diff / 1000);
+    return { d: Math.floor(s / 86400), h: Math.floor((s % 86400) / 3600), m: Math.floor((s % 3600) / 60), s: s % 60 };
+  });
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      const diff = target - Date.now();
+      if (diff <= 0) { setT({ d: 0, h: 0, m: 0, s: 0 }); clearInterval(id); return; }
+      const s = Math.floor(diff / 1000);
+      setT({ d: Math.floor(s / 86400), h: Math.floor((s % 86400) / 3600), m: Math.floor((s % 3600) / 60), s: s % 60 });
+    }, 1000);
+    return () => clearInterval(id);
+  }, [target]);
+
+  return t;
+}
+
+// ── Countdown display ─────────────────────────────────────────────────────────
+function CountdownDisplay({ countdown }) {
+  const units = [
+    { label: "Days",  value: countdown.d },
+    { label: "Hours", value: countdown.h },
+    { label: "Mins",  value: countdown.m },
+    { label: "Secs",  value: countdown.s },
+  ];
+  return (
+    <div
+      className="hero-countdown flex items-end gap-1 sm:gap-2"
+      aria-label={`${countdown.d} days, ${countdown.h} hours, ${countdown.m} minutes, ${countdown.s} seconds remaining`}
+    >
+      {units.map(({ label, value }, i) => (
+        <div key={label} className="flex items-end gap-1">
+          <div className="flex flex-col items-center">
+            <span
+              className="tabular block min-w-[2.6ch] text-center text-[2.2rem] font-black leading-none text-red sm:text-[2.8rem]"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              {pad(value)}
+            </span>
+            <span className="label-spaced mt-1 text-[0.55rem] tracking-[0.3em] text-steel sm:text-[0.6rem]">
+              {label}
+            </span>
+          </div>
+          {i < 3 && (
+            <span
+              className="mb-[0.6rem] block text-[1.6rem] font-black text-red sm:text-[1.8rem]"
+              style={{ fontFamily: "var(--font-heading)" }}
+              aria-hidden="true"
+            >
+              :
+            </span>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ── Stats row ─────────────────────────────────────────────────────────────────
 const stats = [
-  { value: "3", label: "Days", accent: false },
-  { value: "10 +", label: "Events", accent: false },
-  { value: "∞", label: "Possibilities", accent: true },
+  { value: "3",   label: "Days" },
+  { value: "10+", label: "Events" },
+  { value: "∞",   label: "Possibilities" },
+];
+
+// ── Track path (same bezier used for chevron placement) ──────────────────────
+// Points sampled along: M 720,0 C 920,130 1190,255 1265,405 C 1340,545 1190,695 1440,870
+// We place chevrons along the UPPER portion (above the car area) only
+const CHEVRON_GROUPS = [
+  // { cx, cy, angle } — manually sampled + angled tangentially along the path
+  { cx: 790,  cy: 78,  angle: 30 },
+  { cx: 870,  cy: 128, angle: 34 },
+  { cx: 960,  cy: 182, angle: 38 },
+  { cx: 1050, cy: 237, angle: 41 },
+  { cx: 1130, cy: 295, angle: 43 },
+  { cx: 1195, cy: 355, angle: 40 },
 ];
 
 export default function Hero() {
   const sectionRef = useRef(null);
   const carWrapRef = useRef(null);
+  const countdown  = useCountdown(EVENT_DATE);
+  const reduced    = prefersReducedMotion();
 
-  const scrollTo = (id) => (e) => {
-    e.preventDefault();
-    scrollToSection(id);
-  };
+  const scrollTo = (id) => (e) => { e.preventDefault(); scrollToSection(id); };
 
-  useGSAP(
-    () => {
-      /* ─── 1. ENTRANCE TIMELINE ─────────────────────────── */
-      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+  useGSAP(() => {
+    const skip = reduced;
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-      // Label line
-      tl.from(".hero-label", { y: 18, opacity: 0, duration: 0.5 }, 0);
+    // ── Text wipe-in ──
+    tl.from(".hero-title-line", skip ? {} : { y: "110%", duration: 0.85, stagger: 0.12 }, 0);
+    tl.from(".hero-label",      skip ? {} : { y: 16, opacity: 0, duration: 0.5 }, 0.05);
+    tl.from(".hero-tagline",    skip ? {} : { y: 12, opacity: 0, duration: 0.55 }, 0.38);
+    tl.from(".hero-meta",       skip ? {} : { y: 10, opacity: 0, duration: 0.45 }, 0.48);
+    tl.from(".hero-countdown",  skip ? {} : { y: 10, opacity: 0, duration: 0.45 }, 0.55);
+    tl.from(".hero-ctas",       skip ? {} : { y: 10, opacity: 0, duration: 0.4  }, 0.63);
+    tl.from(".hero-stats-row",  skip ? {} : { y: 10, opacity: 0, duration: 0.4  }, 0.72);
 
-      // Title lines — slide up from behind overflow clip
-      tl.from(
-        ".hero-title-line",
-        { y: "110%", duration: 0.78, stagger: 0.1 },
-        0.08,
-      );
+    // ── Car sweeps in from far right with speed ──
+    if (!skip) {
+      // Start from further right so the swoop travel is more dramatic
+      tl.from(carWrapRef.current, { x: 600, opacity: 0, duration: 1.2, ease: "power4.out" }, 0.08);
+      // A very brief scale-down on landing (like a compression)
+      tl.to(carWrapRef.current, { scaleX: 1.015, scaleY: 0.985, duration: 0.12, ease: "power2.in" }, 1.25);
+      tl.to(carWrapRef.current, { scaleX: 1, scaleY: 1, duration: 0.35, ease: "elastic.out(1, 0.6)" }, 1.37);
+    }
 
-      // Tagline + buttons
-      tl.from(".hero-sub", { y: 14, opacity: 0, duration: 0.5 }, 0.52);
-      tl.from(".hero-btn", { y: 10, opacity: 0, duration: 0.4, stagger: 0.07 }, 0.62);
-      tl.from(".hero-stat-item", { y: 10, opacity: 0, duration: 0.45, stagger: 0.08 }, 0.76);
+    // ── Background chevrons fade in staggered ──
+    if (!skip) {
+      tl.from(".hero-chevron-item", { opacity: 0, x: 20, stagger: { each: 0.04 }, duration: 0.55 }, 0.3);
+    }
 
-      // F1 Car charges in from far right — high speed entrance
-      tl.from(
-        carWrapRef.current,
-        { x: 380, opacity: 0, duration: 3.2, ease: "power4.out" },
-        0.08,
-      );
+    // ── Background track path draws in ──
+    if (!skip) {
+      gsap.from(".hero-track-main", { strokeDashoffset: 1200, strokeDasharray: "1200 1200", duration: 1.8, ease: "power3.out", delay: 0.1 });
+    }
 
-      // Speed lines draw in
-      tl.from(
-        "#speed-lines line",
-        { scaleX: 0, transformOrigin: "left center", stagger: 0.08, duration: 1.5, ease: "power3.out" },
-        0.6,
-      );
-
-      // Background chevrons fade in
-      tl.from(
-        ".hero-chevron-item",
-        { opacity: 0, scale: 0.85, stagger: { each: 0.02, from: "start" }, duration: 0.6 },
-        0.35,
-      );
-
-      // Track paths draw
-      tl.from(
-        ".hero-track-line",
-        { opacity: 0, duration: 1.5, ease: "power2.out" },
-        0.2,
-      );
-
-      /* ─── 2. CONTINUOUS LOOPS ──────────────────────────── */
-
-      // Speed line shimmer — each line flickers independently
-      gsap.to("#speed-lines line", {
-        opacity: "random(0.3, 0.9)",
-        duration: "random(0.2, 0.6)",
-        stagger: { each: 0.08, repeat: -1, yoyo: true },
-        ease: "sine.inOut",
-      });
-
-      // Smooth aerodynamic float / bounce
+    // ── Continuous: car floats (more lively — bigger range, faster) ──
+    if (!skip) {
       gsap.to("#f1-car-container", {
-        y: "-=10 ",
-        duration: 2,
+        y: "-=14",
+        rotate: 0.4,
+        duration: 1.8,
         yoyo: true,
         repeat: -1,
         ease: "sine.inOut",
       });
+    }
 
-      /* ─── 3. SCROLL PARALLAX (scrubbed) ────────────────── */
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1.6,
-        onUpdate(self) {
-          const p = self.progress;
-
-          // Car charges forward (left) strongly as you scroll
-          gsap.set(carWrapRef.current, { x: p * -140, y: p * -18 });
-
-          // Text area floats up slightly — depth effect
-          gsap.set(".hero-text-inner", { y: p * -28 });
-
-          // Speed lines lengthen dramatically on scroll
-          gsap.set("#speed-lines", {
-            scaleX: 1 + p * 0.75,
-            transformOrigin: "right center",
-          });
-        },
+    // ── Continuous: animated rear glow pulse ──
+    if (!skip) {
+      gsap.to("#rear-glow-el", {
+        opacity: 0.4,
+        scale: 1.4,
+        transformOrigin: "center center",
+        duration: 0.7,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut",
       });
+    }
 
-      /* ─── 4. STATS COUNT-UP (enter viewport) ───────────── */
-      ScrollTrigger.create({
-        trigger: ".hero-stats-row",
-        start: "top 90%",
-        once: true,
-        onEnter() {
-          gsap.from(".hero-stat-value", {
-            textContent: 0,
-            duration: 1.2,
-            ease: "power2.out",
-            snap: { textContent: 1 },
-            stagger: 0.15,
-          });
-          gsap.from("#stat-infinity", {
-            scale: 0.5,
-            opacity: 0,
-            duration: 0.8,
-            ease: "back.out(1.7)",
-          });
-        },
-      });
-    },
-    { scope: sectionRef },
-  );
+    // ── Scroll parallax ──
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top top",
+      end: "bottom top",
+      scrub: 1.6,
+      onUpdate(self) {
+        const p = self.progress;
+        gsap.set(carWrapRef.current, { x: p * -80, y: p * -30 });
+        gsap.set(".hero-text-col", { y: p * -24 });
+      },
+    });
+
+  }, { scope: sectionRef });
 
   return (
     <section
@@ -141,221 +179,236 @@ export default function Hero() {
       ref={sectionRef}
       className="relative min-h-screen overflow-hidden bg-paper"
     >
-      {/* ════════════════════════════════════════════════════
-          DECORATIVE BACKGROUND VECTOR LAYER
-          Back-to-Front Layering Order:
-          1. circles → 2. halftone grids → 3. track line and chevrons
-          ════════════════════════════════════════════════════ */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-        aria-hidden="true"
-      >
-        <svg
-          viewBox="0 0 1440 900"
-          className="absolute inset-0 h-full w-full"
-          preserveAspectRatio="xMidYMid slice"
-          aria-hidden="true"
-        >
+      {/* ════════ BACKGROUND SVG ════════ */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <svg viewBox="0 0 1440 900" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
           <defs>
-            {/* Halftone grid soft gray dot matrix pattern */}
-            <pattern id="halftone-dots-pattern" width="16" height="16" patternUnits="userSpaceOnUse">
-              <circle cx="4" cy="4" r="2.2" fill="#D9D9D9" opacity="0.55" />
+            <pattern id="halftone" width="16" height="16" patternUnits="userSpaceOnUse">
+              <circle cx="4" cy="4" r="1.8" fill="#d9d9d9" opacity="0.7" />
             </pattern>
+
+            {/* Animated dashed kerb style — defined in globals.css as @keyframes kerb-flow */}
+            <style>{`
+              @keyframes kerb-flow {
+                from { stroke-dashoffset: 0; }
+                to   { stroke-dashoffset: -60; }
+              }
+              .kerb-stripe {
+                animation: kerb-flow 1.2s linear infinite;
+              }
+              @media (prefers-reduced-motion: reduce) {
+                .kerb-stripe { animation: none; }
+              }
+            `}</style>
           </defs>
 
-          {/* ── 1. CIRCLES: Translucent layered crimson circles (#C51216, 20–30% opacity) ── */}
-          {/* Behind rear section of F1 Car (top-right) */}
-          <circle cx="1200" cy="130" r="120" fill="#C51216" opacity="0.28" />
-          <circle cx="1320" cy="180" r="95" fill="#C51216" opacity="0.22" />
-          <circle cx="1120" cy="220" r="75" fill="#C51216" opacity="0.25" />
+          {/* Decorative crimson circles behind car */}
+          <circle cx="1210" cy="145" r="125" fill="var(--color-red)" opacity="0.22" />
+          <circle cx="1330" cy="200" r="95"  fill="var(--color-red)" opacity="0.18" />
+          <circle cx="1110" cy="240" r="70"  fill="var(--color-red)" opacity="0.20" />
+          <circle cx="140"  cy="770" r="130" fill="var(--color-red)" opacity="0.18" />
+          <circle cx="250"  cy="820" r="90"  fill="var(--color-red)" opacity="0.15" />
 
-          {/* Bottom-left canvas corner */}
-          <circle cx="160" cy="760" r="130" fill="#C51216" opacity="0.26" />
-          <circle cx="270" cy="810" r="90" fill="#C51216" opacity="0.22" />
-          <circle cx="100" cy="850" r="105" fill="#C51216" opacity="0.28" />
+          {/* Halftone dot areas */}
+          <rect x="480" y="260" width="185" height="115" fill="url(#halftone)" />
+          <rect x="1050" y="260" width="175" height="125" fill="url(#halftone)" />
+          <rect x="1145" y="550" width="155" height="120" fill="url(#halftone)" />
 
-          {/* ── 2. HALFTONE GRIDS: Rectangular dot matrices in soft gray flanking the car ── */}
-          {/* Flank A: Mid-Left beside cockpit */}
-          <rect x="520" y="270" width="180" height="110" fill="url(#halftone-dots-pattern)" />
-          {/* Flank B: Top-Right behind engine airbox */}
-          <rect x="1060" y="250" width="170" height="120" fill="url(#halftone-dots-pattern)" />
-          {/* Flank C: Bottom-Right flanking rear track curve */}
-          <rect x="1150" y="540" width="150" height="120" fill="url(#halftone-dots-pattern)" />
-
-          {/* ── 3. TRACK LINE & CHEVRONS ── */}
-
-          {/* RACING LINE: Continuous bezier curve from top-center, looping around rear tires to bottom-right */}
-          {/* Outer asphalt track border */}
+          {/* ─── Track road band ─── */}
           <path
-            className="hero-track-line"
-            d="M 720,0 C 920,120 1180,240 1260,390 C 1330,530 1180,690 1440,860"
+            className="hero-track-main"
+            d="M 720,0 C 920,130 1190,255 1265,405 C 1340,545 1190,695 1440,870"
             fill="none"
-            stroke="#2B2D2C"
-            strokeWidth="32"
+            stroke="var(--color-charcoal)"
+            strokeWidth="30"
             strokeLinecap="round"
-            opacity="0.9"
+            opacity="0.88"
           />
-          {/* Inner white guidance curb */}
+
+          {/* White edge line */}
           <path
-            className="hero-track-line"
-            d="M 710,-10 C 910,110 1170,230 1250,380 C 1320,520 1170,680 1430,850"
+            d="M 710,-12 C 910,118 1180,243 1255,393 C 1330,533 1180,683 1430,858"
             fill="none"
-            stroke="#D9D9D9"
+            stroke="var(--color-paper)"
             strokeWidth="2.5"
             strokeLinecap="round"
-            opacity="0.65"
+            opacity="0.6"
           />
-          {/* Crimson optimal racing trajectory line */}
+
+          {/* ─── Animated red kerb stripe (moves forward) ─── */}
           <path
-            className="hero-track-line"
-            d="M 720,0 C 920,120 1180,240 1260,390 C 1330,530 1180,690 1440,860"
+            className="kerb-stripe"
+            d="M 720,0 C 920,130 1190,255 1265,405 C 1340,545 1190,695 1440,870"
             fill="none"
-            stroke="#C51216"
-            strokeWidth="5"
-            strokeLinecap="round"
-            strokeDasharray="16 12"
-            opacity="0.9"
-            transform="translate(-6, -6)"
+            stroke="var(--color-red)"
+            strokeWidth="6"
+            strokeLinecap="butt"
+            strokeDasharray="22 11"
+            opacity="0.92"
+            transform="translate(-4, -4)"
           />
 
-          {/* CHEVRONS: Two tiers of light-gray arrowheads (<<<<) along the upper track path */}
-          {/* Tier 1: Upper track path near top-center */}
-          <g className="hero-chevron-item" opacity="0.6" transform="translate(780, 85) rotate(14)">
-            <polygon points="0,0 -16,14 0,28 -6,28 -22,14 -6,0" fill="#D9D9D9" />
-            <polygon points="26,0 10,14 26,28 20,28 4,14 20,0" fill="#D9D9D9" />
-            <polygon points="52,0 36,14 52,28 46,28 30,14 46,0" fill="#D9D9D9" />
-            <polygon points="78,0 62,14 78,28 72,28 56,14 72,0" fill="#D9D9D9" />
-          </g>
-
-          {/* Tier 2: Mid-Upper track path along sweep */}
-          <g className="hero-chevron-item" opacity="0.55" transform="translate(1000, 185) rotate(26)">
-            <polygon points="0,0 -18,16 0,32 -8,32 -26,16 -8,0" fill="#D9D9D9" />
-            <polygon points="30,0 12,16 30,32 22,32 4,16 22,0" fill="#D9D9D9" />
-            <polygon points="60,0 42,16 60,32 52,32 34,16 52,0" fill="#D9D9D9" />
-            <polygon points="90,0 72,16 90,32 82,32 64,16 82,0" fill="#D9D9D9" />
-          </g>
-
+          {/* ─── Chevron markers along the track path (upper 60% only, above car body) ─── */}
+          {CHEVRON_GROUPS.map(({ cx, cy, angle }, gi) => (
+            <g
+              key={gi}
+              className="hero-chevron-item"
+              transform={`translate(${cx - 20}, ${cy - 10}) rotate(${angle})`}
+              opacity={0.55 - gi * 0.04}
+            >
+              {/* 3 chevron blades per group */}
+              {[0, 18, 36].map((offset) => (
+                <polygon
+                  key={offset}
+                  points={`${offset},0 ${offset - 12},10 ${offset},20 ${offset - 4},20 ${offset - 16},10 ${offset - 4},0`}
+                  fill="var(--color-silver)"
+                />
+              ))}
+            </g>
+          ))}
         </svg>
       </div>
 
-      {/* ════════════════════════════════════════════════════
-          F1 CAR — aligned along track trajectory
-          ════════════════════════════════════════════════════ */}
+      {/* ════════ F1 CAR — smaller width → more swoop travel visible ════════ */}
       <div
         ref={carWrapRef}
-        className="pointer-events-none absolute right-[-6%] top-[8%] z-[1] flex h-[88%] items-center lg:right-[-4%]"
-        style={{ width: "62%" }}
+        className="pointer-events-none absolute right-[-4%] top-[6%] z-[1] flex h-[82%] items-center lg:right-[-2%]"
+        style={{ width: "55%" }}   /* reduced from 64% → more white space left, bigger entrance travel */
         aria-hidden="true"
       >
         <F1Car className="w-full" />
       </div>
 
-      {/* ════════════════════════════════════════════════════
-          MAIN CONTENT — High-Contrast Technical Typography
-          ════════════════════════════════════════════════════ */}
+      {/* ════════ MAIN COPY ════════ */}
       <div className="container-page relative z-10 flex min-h-screen flex-col py-6">
-        {/* ── Text block ── */}
-        <div className="hero-text-inner flex flex-1 items-center pb-20 pt-24 sm:pt-28">
-          <div className="max-w-2xl relative">
-            {/* Subtle glow behind text to ensure readability if car overlaps */}
-            <div className="pointer-events-none absolute inset-0 -z-5 -ml-5 -mt-5 h-[100%] w-[100%] bg-radial from-paper/10 via-paper/5 to-transparent blur-xl" />
+        <div className="hero-text-col flex flex-1 items-center pb-20 pt-28 sm:pt-32">
+          {/* ── Info panel with frosted backdrop ── */}
+          <div
+            className="relative"
+            style={{ maxWidth: "min(540px, 46vw)" }}
+          >
+            
 
-            {/* Label */}
-            <p className="hero-label label-spaced mb-6 flex items-center gap-4 text-charcoal font-bold">
-              <span aria-hidden="true" className="h-bar w-10 shrink-0 bg-red" />
-              IEEE DTU SB <span className="text-red font-bold">×</span> IEEE GTBIT SB
+            {/* Partners label */}
+            <p className="hero-label label-spaced mb-5 flex items-center gap-3 text-charcoal">
+              <span aria-hidden="true" className="block h-[3px] w-8 shrink-0 bg-red" />
+              <span>IEEE DTU SB <span className="text-red font-bold">×</span> IEEE GTBIT SB</span>
             </p>
 
-            {/* Headline — Orbitron racing display font */}
-            <h2
-              className="max-w-3xl text-mega text-charcoal relative z-10 "
+            {/* ── Hero title — overflow visible so italic/skew isn't clipped ── */}
+            <h1
+              className="leading-[0.88] text-charcoal relative z-10"
               style={{
-                lineHeight: "0.92",
-                fontFamily: "'Orbitron', 'Audiowide', sans-serif",
-                fontWeight: 750,
+                fontFamily: "var(--font-heading)",
+                fontWeight: 950,
+                fontSize: "clamp(4rem, 10.5vw, 10.5rem)",
+                /* Enough left padding to absorb the skew lean without clipping */
+                paddingLeft: "0.08em",
               }}
             >
-              <span className="block overflow-hidden pb-1">
-                <span className="hero-title-line block">IEEE</span>
+              <span className="block overflow-visible pb-1">
+                <span
+                  className="hero-title-line"
+                  style={{ transform: "skewX(-10deg)", display: "inline-block" }}
+                >IEEE</span>
               </span>
-              <span className="block overflow-hidden pb-4">
-                <span className="hero-title-line block text-red">DAY 26</span>
+              <span className="block overflow-visible pb-1">
+                <span
+                  className="hero-title-line text-red"
+                  style={{ transform: "skewX(-10deg)", display: "inline-block" }}
+                >DAY</span>
               </span>
-            </h2>
+              <span className="block overflow-visible">
+                <span
+                  className="hero-title-line"
+                  style={{ transform: "skewX(-10deg)", display: "inline-block" }}
+                >26</span>
+              </span>
+            </h1>
 
             {/* Tagline */}
-            <p className="hero-sub label-spaced mt-7 text-charcoal/60">
-              Same curiosity&nbsp;·&nbsp;Higher tomorrows
+            <p
+              className="hero-tagline mt-5 text-[1.05rem] font-medium text-charcoal/75 sm:text-[1.15rem]"
+              style={{ fontFamily: "var(--font-body)", maxWidth: "32ch" }}
+            >
+              Same curiosity · Higher tomorrows.
             </p>
 
-            {/* CTA buttons */}
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Button
-                href="#events"
-                onClick={scrollTo("events")}
-                trailing="→"
-                className="hero-btn"
-              >
-                Explore Events
-              </Button>
-              <Button
-                variant="secondary"
-                href="#contact"
-                onClick={scrollTo("contact")}
-                className="hero-btn"
-              >
-                Register Now ↗
-              </Button>
+            {/* Date & Venue */}
+            <p
+              className="hero-meta label-spaced mt-5 text-charcoal/60"
+              style={{ letterSpacing: "0.22em" }}
+            >
+              16-18 Oct 2026 · Delhi Technological University
+            </p>
+
+            {/* Countdown */}
+            <div className="mt-6">
+              <CountdownDisplay countdown={countdown} />
             </div>
 
-            {/* Stats — 3 columns */}
-            <div
-              id="hero-stats"
-              className="hero-stats-row mt-16 grid max-w-xl grid-cols-3 border-t border-silver pt-5"
-            >
-              {stats.map(({ value, label, accent }, i) => (
-                <div
-                  key={label}
-                  className={`hero-stat-item ${i > 0 ? "border-l border-silver pl-6" : ""}`}
-                >
-                  {label === "Possibilities" ? (
-                    <p
-                      id="stat-infinity"
-                      className="statement tabular text-stat text-red"
-                      style={{ fontFamily: "'Orbitron', 'Audiowide', sans-serif", fontWeight: 800 }}
-                    >
-                      ∞
-                    </p>
-                  ) : (
-                    <p
-                      className={`statement tabular text-stat hero-stat-value ${accent ? "text-red" : "text-charcoal"}`}
-                      data-target={value}
-                      style={{ fontFamily: "'Orbitron', 'Audiowide', sans-serif", fontWeight: 650 }}
-                    >
-                      {value}
-                    </p>
-                  )}
-                  <p className="label-spaced mt-1 text-charcoal/60"
-                    style={{ fontFamily: "'Audiowide', sans-serif", fontSize: "0.62rem", letterSpacing: "0.18em" }}
-                  >{label}</p>
+            {/* CTA buttons */}
+            <div className="hero-ctas mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href="#contact"
+                onClick={scrollTo("contact")}
+                className="group inline-flex items-center gap-2 bg-red px-7 py-3.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] leading-none text-paper transition-colors duration-150 hover:bg-red-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                Register Now
+                <span aria-hidden="true" className="transition-transform duration-150 group-hover:translate-x-[3px]">→</span>
+              </a>
+              <a
+                href="#events"
+                onClick={scrollTo("events")}
+                className="inline-flex items-center gap-2 border-[1.5px] border-charcoal px-7 py-3.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] leading-none text-charcoal transition-colors duration-150 hover:bg-charcoal hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-charcoal"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                Explore Events
+              </a>
+            </div>
+
+            {/* Stats strip */}
+            <div className="hero-stats-row mt-12 grid max-w-sm grid-cols-3 border-t border-silver pt-5">
+              {stats.map(({ value, label }, i) => (
+                <div key={label} className={i > 0 ? "border-l border-silver pl-5" : ""}>
+                  <p
+                    className="tabular text-[1.9rem] font-black leading-none text-red"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {value}
+                  </p>
+                  <p className="label-spaced mt-1 text-charcoal/55 text-[0.58rem]">{label}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* ── Bottom bar ── */}
-        <div className="label-spaced flex items-center justify-between border-t border-silver pt-4 text-charcoal/80">
+        {/* Bottom bar */}
+        <div className="label-spaced flex items-center justify-between border-t border-silver pt-4 text-charcoal/60">
           <span>Delhi Technological University · New Delhi</span>
           <a
             href="#about"
             onClick={scrollTo("about")}
-            className="hidden items-center gap-2 transition-colors duration-(--duration-fast) hover:text-red sm:flex"
+            className="hidden items-center gap-2 transition-colors duration-150 hover:text-red sm:flex"
           >
             Scroll to discover <span className="text-red">↓</span>
           </a>
         </div>
       </div>
+
+      {/* ── Responsive: car under copy on mobile ── */}
+      <style>{`
+        @media (max-width: 767px) {
+          #home > div[style*="width: 55%"] {
+            position: static !important;
+            width: 100% !important;
+            height: auto !important;
+            margin-top: 2rem;
+          }
+        }
+      `}</style>
     </section>
   );
 }

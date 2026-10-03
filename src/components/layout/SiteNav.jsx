@@ -76,9 +76,8 @@ export default function SiteNav() {
                 href={`#${link.id}`}
                 onClick={handleScrollTo(link.id)}
                 aria-current={isActive ? "true" : undefined}
-                className={`relative py-1 transition-colors duration-(--duration-fast) hover:text-red ${
-                  isActive ? "text-red" : ""
-                }`}
+                className={`relative py-1 transition-colors duration-(--duration-fast) hover:text-red ${isActive ? "text-red" : ""
+                  }`}
               >
                 {link.label}
                 {isActive && (
@@ -130,11 +129,10 @@ export default function SiteNav() {
                   href={`#${link.id}`}
                   onClick={handleScrollTo(link.id)}
                   aria-current={isActive ? "true" : undefined}
-                  className={`border-l-[3px] px-4 py-3.5 transition-colors duration-(--duration-fast) ${
-                    isActive
-                      ? "border-red bg-silver text-red"
-                      : "border-transparent text-charcoal hover:bg-silver"
-                  }`}
+                  className={`border-l-[3px] px-4 py-3.5 transition-colors duration-(--duration-fast) ${isActive
+                    ? "border-red bg-silver text-red"
+                    : "border-transparent text-charcoal hover:bg-silver"
+                    }`}
                 >
                   {link.label}
                 </a>
