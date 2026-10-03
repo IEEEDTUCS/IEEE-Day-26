@@ -3,9 +3,7 @@ import {
   Hero,
   About,
   Events,
-  Speakers,
   Schedule,
-  Sponsors,
   Gallery,
   Faqs,
   RegisterCta,
@@ -24,9 +22,7 @@ export function App() {
         <Hero />
         <About />
         <Events />
-        <Speakers />
         <Schedule />
-        <Sponsors />
         <Gallery />
         <Faqs />
         <RegisterCta />
