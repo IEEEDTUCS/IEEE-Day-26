@@ -143,7 +143,8 @@ export default function Hero() {
     >
       {/* ════════════════════════════════════════════════════
           DECORATIVE BACKGROUND VECTOR LAYER
-          (Matches exact layout of Reference Picture 2)
+          Back-to-Front Layering Order:
+          1. circles → 2. halftone grids → 3. track line and chevrons
           ════════════════════════════════════════════════════ */}
       <div
         className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
@@ -156,94 +157,83 @@ export default function Hero() {
           aria-hidden="true"
         >
           <defs>
-            {/* Dot matrix pattern */}
-            <pattern id="grid-dots-pattern" width="16" height="16" patternUnits="userSpaceOnUse">
-              <circle cx="3" cy="3" r="2.2" fill="#2b2d2c" opacity="0.34" />
+            {/* Halftone grid soft gray dot matrix pattern */}
+            <pattern id="halftone-dots-pattern" width="16" height="16" patternUnits="userSpaceOnUse">
+              <circle cx="4" cy="4" r="2.2" fill="#D9D9D9" opacity="0.55" />
             </pattern>
           </defs>
 
-          {/* ── 1. Top-Right Vibrant Red Overlapping Circles (Reference 2) ── */}
-          <circle cx="1260" cy="100" r="100" fill="#c51216" opacity="0.88" />
-          <circle cx="1360" cy="125" r="90" fill="#c51216" opacity="0.65" />
+          {/* ── 1. CIRCLES: Translucent layered crimson circles (#C51216, 20–30% opacity) ── */}
+          {/* Behind rear section of F1 Car (top-right) */}
+          <circle cx="1200" cy="130" r="120" fill="#C51216" opacity="0.28" />
+          <circle cx="1320" cy="180" r="95" fill="#C51216" opacity="0.22" />
+          <circle cx="1120" cy="220" r="75" fill="#C51216" opacity="0.25" />
 
-          {/* ── 3. Bottom Bold Sweeping Asphalt Track (Reference 2) ── */}
+          {/* Bottom-left canvas corner */}
+          <circle cx="160" cy="760" r="130" fill="#C51216" opacity="0.26" />
+          <circle cx="270" cy="810" r="90" fill="#C51216" opacity="0.22" />
+          <circle cx="100" cy="850" r="105" fill="#C51216" opacity="0.28" />
+
+          {/* ── 2. HALFTONE GRIDS: Rectangular dot matrices in soft gray flanking the car ── */}
+          {/* Flank A: Mid-Left beside cockpit */}
+          <rect x="520" y="270" width="180" height="110" fill="url(#halftone-dots-pattern)" />
+          {/* Flank B: Top-Right behind engine airbox */}
+          <rect x="1060" y="250" width="170" height="120" fill="url(#halftone-dots-pattern)" />
+          {/* Flank C: Bottom-Right flanking rear track curve */}
+          <rect x="1150" y="540" width="150" height="120" fill="url(#halftone-dots-pattern)" />
+
+          {/* ── 3. TRACK LINE & CHEVRONS ── */}
+
+          {/* RACING LINE: Continuous bezier curve from top-center, looping around rear tires to bottom-right */}
+          {/* Outer asphalt track border */}
           <path
             className="hero-track-line"
-            d="M 1440,300 C 1330,460 1250,570 1080,720 C 930,850 780,910 680,940"
+            d="M 720,0 C 920,120 1180,240 1260,390 C 1330,530 1180,690 1440,860"
             fill="none"
-            stroke="#1a1c1a"
-            strokeWidth="34"
+            stroke="#2B2D2C"
+            strokeWidth="32"
             strokeLinecap="round"
-            opacity="0.95"
+            opacity="0.9"
           />
-          {/* Inner white curb guideline */}
+          {/* Inner white guidance curb */}
           <path
             className="hero-track-line"
-            d="M 1440,285 C 1315,450 1235,560 1065,710 C 915,840 765,900 665,930"
+            d="M 710,-10 C 910,110 1170,230 1250,380 C 1320,520 1170,680 1430,850"
             fill="none"
-            stroke="#ffffff"
-            strokeWidth="2"
+            stroke="#D9D9D9"
+            strokeWidth="2.5"
             strokeLinecap="round"
-            opacity="0.6"
+            opacity="0.65"
           />
-          {/* Red optimal racing trajectory line */}
+          {/* Crimson optimal racing trajectory line */}
           <path
             className="hero-track-line"
-            d="M 1440,300 C 1330,460 1250,570 1080,720 C 930,850 780,910 680,940"
+            d="M 720,0 C 920,120 1180,240 1260,390 C 1330,530 1180,690 1440,860"
             fill="none"
-            stroke="#c51216"
+            stroke="#C51216"
             strokeWidth="5"
             strokeLinecap="round"
             strokeDasharray="16 12"
-            opacity="0.85"
-            transform="translate(-6, -8)"
+            opacity="0.9"
+            transform="translate(-6, -6)"
           />
 
-          {/* ── 4. Precision Chevron Groups (Reference 2) ── */}
-
-          {/* Group A: Top chevrons near S-chicane pointing LEFT (<<<<<) */}
-          <g className="hero-chevron-item" opacity="0.38" transform="translate(800, 95)">
-            <polygon points="0,0 -16,14 0,28 -6,28 -22,14 -6,0" fill="#2b2d2c" />
-            <polygon points="26,0 10,14 26,28 20,28 4,14 20,0" fill="#2b2d2c" />
-            <polygon points="52,0 36,14 52,28 46,28 30,14 46,0" fill="#2b2d2c" />
-            <polygon points="78,0 62,14 78,28 72,28 56,14 72,0" fill="#2b2d2c" />
+          {/* CHEVRONS: Two tiers of light-gray arrowheads (<<<<) along the upper track path */}
+          {/* Tier 1: Upper track path near top-center */}
+          <g className="hero-chevron-item" opacity="0.6" transform="translate(780, 85) rotate(14)">
+            <polygon points="0,0 -16,14 0,28 -6,28 -22,14 -6,0" fill="#D9D9D9" />
+            <polygon points="26,0 10,14 26,28 20,28 4,14 20,0" fill="#D9D9D9" />
+            <polygon points="52,0 36,14 52,28 46,28 30,14 46,0" fill="#D9D9D9" />
+            <polygon points="78,0 62,14 78,28 72,28 56,14 72,0" fill="#D9D9D9" />
           </g>
 
-          {/* Group B: Left of Halo / Cockpit (<<<<) */}
-          <g className="hero-chevron-item" opacity="0.35" transform="translate(600, 275)">
-            <polygon points="0,0 -18,16 0,32 -8,32 -26,16 -8,0" fill="#2b2d2c" />
-            <polygon points="30,0 12,16 30,32 22,32 4,16 22,0" fill="#2b2d2c" />
-            <polygon points="60,0 42,16 60,32 52,32 34,16 52,0" fill="#2b2d2c" />
-            <polygon points="90,0 72,16 90,32 82,32 64,16 82,0" fill="#2b2d2c" />
+          {/* Tier 2: Mid-Upper track path along sweep */}
+          <g className="hero-chevron-item" opacity="0.55" transform="translate(1000, 185) rotate(26)">
+            <polygon points="0,0 -18,16 0,32 -8,32 -26,16 -8,0" fill="#D9D9D9" />
+            <polygon points="30,0 12,16 30,32 22,32 4,16 22,0" fill="#D9D9D9" />
+            <polygon points="60,0 42,16 60,32 52,32 34,16 52,0" fill="#D9D9D9" />
+            <polygon points="90,0 72,16 90,32 82,32 64,16 82,0" fill="#D9D9D9" />
           </g>
-
-          {/* Group C: Bottom-Left Curving Curb Chevrons (<<<<<<<) */}
-          <g className="hero-chevron-item" opacity="0.4" transform="translate(180, 780)">
-            <polygon points="0,0 -14,12 0,24 -6,24 -20,12 -6,0" fill="#2b2d2c" />
-            <polygon points="22,0 8,12 22,24 16,24 2,12 16,0" fill="#2b2d2c" />
-            <polygon points="44,0 30,12 44,24 38,24 24,12 38,0" fill="#2b2d2c" />
-            <polygon points="66,0 52,12 66,24 60,24 46,12 60,0" fill="#2b2d2c" />
-            <polygon points="88,0 74,12 88,24 82,24 68,12 82,0" fill="#2b2d2c" />
-            <polygon points="110,0 96,12 110,24 104,24 90,12 104,0" fill="#2b2d2c" />
-            <polygon points="132,0 118,12 132,24 126,24 112,12 126,0" fill="#2b2d2c" />
-            <polygon points="154,0 140,12 154,24 148,24 134,12 148,0" fill="#2b2d2c" />
-          </g>
-
-          {/* Group D: Under Rear Wheel Curb Chevrons (<<<<<) */}
-          <g className="hero-chevron-item" opacity="0.45" transform="translate(860, 810) rotate(-26)">
-            <polygon points="0,0 -15,13 0,26 -6,26 -21,13 -6,0" fill="#2b2d2c" />
-            <polygon points="24,0 9,13 24,26 18,26 3,13 18,0" fill="#2b2d2c" />
-            <polygon points="48,0 33,13 48,26 42,26 27,13 42,0" fill="#2b2d2c" />
-            <polygon points="72,0 57,13 72,26 66,26 51,13 66,0" fill="#2b2d2c" />
-            <polygon points="96,0 81,13 96,26 90,26 75,13 90,0" fill="#2b2d2c" />
-            <polygon points="120,0 105,13 120,26 114,26 99,13 114,0" fill="#2b2d2c" />
-          </g>
-
-          {/* ── 5. Technical Dot Matrix Grids (Reference 2) ── */}
-          {/* Grid A: Left beside cockpit */}
-          <rect x="750" y="295" width="160" height="96" fill="url(#grid-dots-pattern)" />
-          {/* Grid B: Right near rear track */}
-          <rect x="1120" y="520" width="144" height="112" fill="url(#grid-dots-pattern)" />
 
         </svg>
       </div>
