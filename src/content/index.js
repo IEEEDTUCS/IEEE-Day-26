@@ -13,3 +13,4 @@ export {
 } from "./contact";
 export { galleryPhotos, galleryLabel } from "./gallery";
 export { events, eventsSection } from "./events";
+export { about } from "./about";

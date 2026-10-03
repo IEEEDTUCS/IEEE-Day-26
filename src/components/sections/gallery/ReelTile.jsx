@@ -67,7 +67,7 @@ export function ReelTile({
 
       <span
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-[5px] origin-left scale-x-0 bg-red transition-transform duration-450 ease-race group-hover:scale-x-100 group-focus-visible:scale-x-100"
+        className="absolute inset-x-0 bottom-0 h-bar origin-left scale-x-0 bg-red transition-transform duration-450 ease-race group-hover:scale-x-100 group-focus-visible:scale-x-100"
       />
     </button>
   );

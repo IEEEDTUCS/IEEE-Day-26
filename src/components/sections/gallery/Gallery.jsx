@@ -189,7 +189,7 @@ export function Gallery() {
         }}
       />
 
-      <div className="relative flex flex-col gap-5 px-4 pb-11 pt-[62px] md:gap-8 md:px-8 md:pb-[72px] md:pt-[108px] lg:px-20">
+      <div className="relative flex flex-col gap-5 px-4 pb-11 pt-15.5 md:gap-8 md:px-8 md:pb-18 md:pt-27 lg:px-20">
         {/* Header */}
         <header className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between md:gap-10">
           <div className="flex min-w-0 flex-col gap-3 md:gap-4">
@@ -197,7 +197,7 @@ export function Gallery() {
               <span className="inline-flex origin-left scale-[0.8] md:scale-100">
                 <DotGrid count={6} redIndex={0} size={9} gap={10} />
               </span>
-              <span className="text-[9px] font-semibold uppercase tracking-[0.35em] text-silver md:text-[11px]">
+              <span className="text-[9px] font-semibold uppercase tracking-spaced text-silver md:text-[11px]">
                 {galleryLabel}
               </span>
             </div>
@@ -256,11 +256,11 @@ export function Gallery() {
           <div
             data-g-speedline
             aria-hidden="true"
-            className="flex h-[3px] items-stretch gap-2.5"
+            className="flex h-0.75 items-stretch gap-2.5"
           >
             <span className="flex-1 bg-red" />
-            <span className="w-[120px] bg-silver" />
-            <span className="w-[60px] bg-track" />
+            <span className="w-30 bg-silver" />
+            <span className="w-15 bg-track" />
           </div>
 
           <Reel

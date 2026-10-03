@@ -9,11 +9,12 @@ import {
   Faqs,
   RegisterCta,
 } from "./components/sections";
-import { useLenis } from "./motion";
+import { useLenis, useScrollRefresh } from "./motion";
 import { useInitialScroll } from "./hooks";
 
 export function App() {
   useLenis();
+  useScrollRefresh();
   useInitialScroll();
 
   return (

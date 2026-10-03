@@ -69,7 +69,7 @@ function ColumnHeading({ id, label, at, ruleAt }) {
         data-ft-rule
         data-at={ruleAt}
         aria-hidden="true"
-        className="block h-1 w-16 origin-left bg-red [clip-path:polygon(4px_0,100%_0,calc(100%_-_4px)_100%,0_100%)]"
+        className="block h-1 w-16 origin-left bg-red [clip-path:polygon(4px_0,100%_0,calc(100%-4px)_100%,0_100%)]"
       />
     </div>
   );
@@ -78,7 +78,7 @@ function ColumnHeading({ id, label, at, ruleAt }) {
 function GroupLabel({ children, at }) {
   return (
     <div data-ft-group data-at={at} className="flex items-center gap-2.5">
-      <span aria-hidden="true" className="block h-3.5 w-[3px] bg-red" />
+      <span aria-hidden="true" className="block h-3.5 w-0.75 bg-red" />
       <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-steel">
         {children}
       </span>
@@ -122,7 +122,7 @@ function KnowMore() {
       {...(live
         ? { href: linktree.href, target: "_blank", rel: "noopener noreferrer" }
         : { "aria-disabled": "true", title: footerCopy.linktreeTodo })}
-      className="group relative isolate flex min-h-[52px] items-center justify-between gap-3.5 overflow-hidden bg-red px-[22px] text-[13px] font-extrabold uppercase tracking-[0.26em] text-paper [clip-path:polygon(0_0,100%_0,calc(100%_-_14px)_100%,0_100%)]"
+      className="group relative isolate flex min-h-13 items-center justify-between gap-3.5 overflow-hidden bg-red px-5.5 text-[13px] font-extrabold uppercase tracking-[0.26em] text-paper [clip-path:polygon(0_0,100%_0,calc(100%-14px)_100%,0_100%)]"
     >
       <span aria-hidden="true" className={`${SWEEP} bg-red-deep`} />
       <span className="relative">{linktree.label}</span>
@@ -131,7 +131,7 @@ function KnowMore() {
         height="14"
         viewBox="0 0 14 14"
         aria-hidden="true"
-        className="relative mr-2 block transition-transform duration-(--duration-base) ease-race group-hover:translate-x-[3px] group-hover:-translate-y-[3px] group-focus-visible:translate-x-[3px] group-focus-visible:-translate-y-[3px]"
+        className="relative mr-2 block transition-transform duration-(--duration-base) ease-race group-hover:translate-x-0.75 group-hover:-translate-y-0.75 group-focus-visible:translate-x-0.75 group-focus-visible:-translate-y-0.75"
       >
         <path
           d="M2 12 12 2M4 2h8v8"
@@ -149,7 +149,7 @@ function FollowUs() {
   return (
     <section
       aria-labelledby="ft-follow"
-      className={`flex flex-col gap-[18px] lg:col-start-1 lg:row-start-1 lg:gap-[22px] ${
+      className={`flex flex-col gap-4.5 lg:col-start-1 lg:row-start-1 lg:gap-5.5 ${
         showEventLeads ? "" : "lg:row-span-2"
       }`}
     >
@@ -208,7 +208,7 @@ function EmailBlock() {
           <a
             key={host.id}
             href={`mailto:${address}`}
-            className="-my-[12.5px] inline-flex w-fit items-center py-[12.5px] text-[15px] font-semibold text-paper transition-colors duration-(--duration-base) hover:text-red-bright focus-visible:text-red-bright lg:text-sm"
+            className="my-[-12.5px] inline-flex w-fit items-center py-[12.5px] text-[15px] font-semibold text-paper transition-colors duration-(--duration-base) hover:text-red-bright focus-visible:text-red-bright lg:text-sm"
           >
             <span className="border-b-[1.5px] border-red-bright pb-px">
               {address}
@@ -243,7 +243,7 @@ function LeadList({ host, leads, column }) {
             </span>
             <a
               href={`tel:${lead.phone.replace(/\s+/g, "")}`}
-              className="-my-[13.5px] inline-flex w-fit items-center py-[13.5px] text-[13px] font-medium tracking-[0.04em] tabular-nums text-steel transition-colors duration-(--duration-base) hover:text-red-bright focus-visible:text-red-bright"
+              className="my-[-13.5px] inline-flex w-fit items-center py-[13.5px] text-[13px] font-medium tracking-[0.04em] tabular-nums text-steel transition-colors duration-(--duration-base) hover:text-red-bright focus-visible:text-red-bright"
             >
               {lead.phone}
             </a>
@@ -272,7 +272,7 @@ function EventLeads() {
   return (
     <section
       aria-labelledby="ft-leads"
-      className="flex flex-col gap-[18px] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:gap-[22px]"
+      className="flex flex-col gap-4.5 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:gap-5.5"
     >
       <ColumnHeading
         id="ft-leads"
@@ -292,7 +292,7 @@ function EventVenue() {
   return (
     <section
       aria-labelledby="ft-venue"
-      className={`flex flex-col gap-[18px] lg:row-start-1 lg:gap-[22px] ${
+      className={`flex flex-col gap-4.5 lg:row-start-1 lg:gap-5.5 ${
         showEventLeads ? "lg:col-start-3 lg:row-span-2" : "lg:col-start-2"
       }`}
     >
@@ -305,8 +305,8 @@ function EventVenue() {
       <div
         className={
           showEventLeads
-            ? "flex flex-col gap-[18px] lg:gap-[22px]"
-            : "flex flex-col gap-[18px] lg:grid lg:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] lg:gap-x-10 lg:gap-y-7"
+            ? "flex flex-col gap-4.5 lg:gap-5.5"
+            : "flex flex-col gap-4.5 lg:grid lg:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] lg:gap-x-10 lg:gap-y-7"
         }
       >
         {venues.map((venue, i) => (
@@ -341,7 +341,7 @@ function EventVenue() {
                   {footerCopy.directions}{" "}
                   <span
                     aria-hidden="true"
-                    className="inline-block transition-transform duration-(--duration-base) ease-race group-hover:translate-x-[3px] group-hover:-translate-y-[3px] group-focus-visible:translate-x-[3px] group-focus-visible:-translate-y-[3px]"
+                    className="inline-block transition-transform duration-(--duration-base) ease-race group-hover:translate-x-0.75 group-hover:-translate-y-0.75 group-focus-visible:translate-x-0.75 group-focus-visible:-translate-y-0.75"
                   >
                     ↗
                   </span>
@@ -367,7 +367,7 @@ function Chevrons() {
             height="15"
             viewBox="0 0 30 44"
             aria-hidden="true"
-            className="block h-[15px] w-[10px] lg:h-[18px] lg:w-3"
+            className="block h-3.75 w-2.5 lg:h-4.5 lg:w-3"
           >
             <polygon
               points="0,0 13,0 30,22 13,44 0,44 17,22"
@@ -524,11 +524,11 @@ export function Footer() {
         <div className="absolute inset-0 bg-charcoal [clip-path:polygon(0_44px,0_20px,40%_20px,48%_0,100%_0,100%_44px)] lg:[clip-path:polygon(0_64px,0_28px,54%_28px,58%_0,100%_0,100%_64px)]" />
         <div
           data-ft-edge
-          className="absolute top-0 left-[48%] h-1 w-[52%] bg-red lg:left-[58%] lg:h-[5px] lg:w-[30%]"
+          className="absolute top-0 left-[48%] h-1 w-[52%] bg-red lg:left-[58%] lg:h-bar lg:w-[30%]"
         />
       </div>
 
-      <div className="px-4 pt-5 lg:mx-auto lg:max-w-[1400px] lg:px-[clamp(1rem,4vw,4rem)] lg:pt-8">
+      <div className="px-4 pt-5 lg:mx-auto lg:max-w-350 lg:px-[clamp(1rem,4vw,4rem)] lg:pt-8">
         <div className="flex flex-wrap items-start gap-x-4 gap-y-5 border-b border-track pb-7 lg:items-center lg:gap-x-7 lg:gap-y-7 lg:pb-9">
           <div className="flex min-w-0 flex-1 flex-col gap-2.5 lg:mr-auto lg:flex-none lg:flex-row lg:flex-wrap lg:items-end lg:gap-5">
             <p
@@ -542,7 +542,7 @@ export function Footer() {
                 <span
                   data-ft-stripe
                   aria-hidden="true"
-                  className="absolute top-[6%] -right-[0.04em] -bottom-[2%] -left-[0.04em] block origin-left scale-x-0 bg-red"
+                  className="absolute top-[6%] right-[-0.04em] bottom-[-2%] left-[-0.04em] block origin-left scale-x-0 bg-red"
                 />
               </span>
               <span className="inline-block w-[0.2em]" />
@@ -553,7 +553,7 @@ export function Footer() {
                 <span
                   data-ft-stripe
                   aria-hidden="true"
-                  className="absolute top-[6%] -right-[0.04em] -bottom-[2%] -left-[0.04em] block origin-left scale-x-0 bg-paper"
+                  className="absolute top-[6%] right-[-0.04em] bottom-[-2%] left-[-0.04em] block origin-left scale-x-0 bg-paper"
                 />
               </span>
             </p>
@@ -562,18 +562,18 @@ export function Footer() {
               data-ft-meta
               className="flex items-center gap-2.5 lg:flex-col lg:items-start lg:gap-1.5 lg:pb-0.5"
             >
-              <span aria-hidden="true" className="flex gap-[5px]">
+              <span aria-hidden="true" className="flex gap-bar">
                 <span
                   data-ft-light
-                  className="block size-[7px] rounded-dot bg-steel"
+                  className="block size-1.75 rounded-dot bg-steel"
                 />
                 <span
                   data-ft-light
-                  className="block size-[7px] rounded-dot bg-steel"
+                  className="block size-1.75 rounded-dot bg-steel"
                 />
                 <span
                   data-ft-light
-                  className="block size-[7px] rounded-dot bg-red"
+                  className="block size-1.75 rounded-dot bg-red"
                 />
               </span>
               <span className="text-[11px] font-bold tracking-[0.28em] text-silver uppercase lg:text-xs lg:tracking-[0.3em]">
@@ -584,7 +584,7 @@ export function Footer() {
 
           <div
             data-ft-hosted
-            className="order-3 flex basis-full flex-wrap items-center gap-3.5 lg:order-2 lg:basis-auto lg:flex-nowrap lg:gap-[18px]"
+            className="order-3 flex basis-full flex-wrap items-center gap-3.5 lg:order-2 lg:basis-auto lg:flex-nowrap lg:gap-4.5"
           >
             <span className="w-full text-[10px] font-bold tracking-[0.28em] text-steel uppercase lg:w-auto lg:text-[11px] lg:tracking-[0.3em]">
               {footerCopy.hostedBy}
@@ -595,7 +595,7 @@ export function Footer() {
               width={dtuHost.logo.width}
               height={dtuHost.logo.height}
               loading="lazy"
-              className="block h-[38px] w-auto lg:h-11"
+              className="block h-9.5 w-auto lg:h-11"
             />
             <span
               aria-hidden="true"
@@ -609,7 +609,7 @@ export function Footer() {
               width={gtbitHost.logo.width}
               height={gtbitHost.logo.height}
               loading="lazy"
-              className="block size-[46px] lg:size-[52px]"
+              className="block size-11.5 lg:size-13"
             />
           </div>
 
@@ -618,7 +618,7 @@ export function Footer() {
             href="#home"
             onClick={goTop}
             aria-label={footerCopy.backToTop}
-            className="group relative isolate order-2 grid size-12 shrink-0 place-items-center overflow-hidden border-2 border-track text-paper lg:order-3 lg:size-[52px]"
+            className="group relative isolate order-2 grid size-12 shrink-0 place-items-center overflow-hidden border-2 border-track text-paper lg:order-3 lg:size-13"
           >
             <span aria-hidden="true" className={`${SWEEP} bg-red`} />
             <svg
@@ -626,7 +626,7 @@ export function Footer() {
               height="18"
               viewBox="0 0 16 18"
               aria-hidden="true"
-              className="relative block transition-transform duration-(--duration-base) ease-race group-hover:-translate-y-[3px] group-focus-visible:-translate-y-[3px]"
+              className="relative block transition-transform duration-(--duration-base) ease-race group-hover:-translate-y-0.75 group-focus-visible:-translate-y-0.75"
             >
               <path
                 d="M8 17V2M2 7.5 8 1.5l6 6"
@@ -640,7 +640,7 @@ export function Footer() {
         </div>
 
         <div
-          className={`grid gap-y-10 pt-8 pb-10 lg:items-start lg:gap-y-[22px] lg:pt-12 lg:pb-14 ${
+          className={`grid gap-y-10 pt-8 pb-10 lg:items-start lg:gap-y-5.5 lg:pt-12 lg:pb-14 ${
             showEventLeads
               ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-x-14"
               : "lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-x-20"
@@ -654,10 +654,10 @@ export function Footer() {
       </div>
 
       <div className="bg-pit-deep">
-        <div className="flex flex-col gap-3 px-4 pt-[18px] pb-[22px] lg:mx-auto lg:max-w-[1400px] lg:flex-row lg:flex-wrap lg:items-center lg:justify-between lg:gap-3 lg:px-[clamp(1rem,4vw,4rem)] lg:py-[18px]">
+        <div className="flex flex-col gap-3 px-4 pt-4.5 pb-5.5 lg:mx-auto lg:max-w-350 lg:flex-row lg:flex-wrap lg:items-center lg:justify-between lg:gap-3 lg:px-[clamp(1rem,4vw,4rem)] lg:py-4.5">
           <nav
             aria-label={footerCopy.navLabel}
-            className="flex flex-wrap gap-x-[22px] lg:order-2 lg:gap-x-6 lg:gap-y-1"
+            className="flex flex-wrap gap-x-5.5 lg:order-2 lg:gap-x-6 lg:gap-y-1"
           >
             {PAGE_LINKS.map((link) => (
               <a

@@ -31,7 +31,7 @@ function Brackets() {
         key={corner}
         data-bracket
         aria-hidden="true"
-        className="pointer-events-none absolute h-[18px] w-[18px] border-red"
+        className="pointer-events-none absolute h-4.5 w-4.5 border-red"
         style={{
           [x]: "10px",
           [y]: "10px",
@@ -374,7 +374,7 @@ export function Lightbox({
       role="dialog"
       aria-modal="true"
       aria-label={`Photo ${index + 1} of ${photos.length}`}
-      className="fixed inset-0 z-[100] bg-pit-deep"
+      className="fixed inset-0 z-100 bg-pit-deep"
     >
       {/* Vignette, so the photo reads as lit rather than pasted on flat black. */}
       <div
@@ -430,7 +430,7 @@ export function Lightbox({
               ref={progress}
               data-lb-progress
               aria-hidden="true"
-              className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-red"
+              className="absolute inset-x-0 bottom-0 h-0.75 origin-left scale-x-0 bg-red"
             />
           )}
         </div>
@@ -477,10 +477,10 @@ export function Lightbox({
                 >
                   <span className="absolute inset-y-0 left-0 w-32 skew-x-[-14deg] bg-red" />
                   <span className="absolute inset-y-0 left-32 w-bar skew-x-[-14deg] bg-paper" />
-                  <span className="absolute inset-y-0 left-[-58px] w-[18px] skew-x-[-14deg] bg-red-deep" />
-                  <span className="absolute left-[283px] top-[21%] h-[2px] w-[150px] skew-x-[-14deg] bg-paper/55" />
-                  <span className="absolute left-[283px] top-[57%] h-[2px] w-[150px] skew-x-[-14deg] bg-red" />
-                  <span className="absolute left-[283px] top-[82%] h-[2px] w-[150px] skew-x-[-14deg] bg-paper/30" />
+                  <span className="absolute inset-y-0 -left-14.5 w-4.5 skew-x-[-14deg] bg-red-deep" />
+                  <span className="absolute left-70.75 top-[21%] h-0.5 w-37.5 skew-x-[-14deg] bg-paper/55" />
+                  <span className="absolute left-70.75 top-[57%] h-0.5 w-37.5 skew-x-[-14deg] bg-red" />
+                  <span className="absolute left-70.75 top-[82%] h-0.5 w-37.5 skew-x-[-14deg] bg-paper/30" />
                 </div>
                 <div
                   ref={flash}

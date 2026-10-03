@@ -43,7 +43,7 @@ function Marker({ markerRef }) {
       aria-hidden="true"
       className="pointer-events-none invisible absolute left-0 top-0 border-2 border-red"
     >
-      <span className="absolute inset-x-0 bottom-0 h-[3px] bg-red" />
+      <span className="absolute inset-x-0 bottom-0 h-0.75 bg-red" />
     </span>
   );
 }
@@ -114,7 +114,7 @@ export function Filmstrip({ photos, index, onJump, reduced }) {
       <div
         data-lb-strip
         ref={wideStrip}
-        className="relative hidden h-[104px] shrink-0 items-center justify-center gap-2 px-10 lg:flex"
+        className="relative hidden h-26 shrink-0 items-center justify-center gap-2 px-10 lg:flex"
       >
         {photos.map((photo, i) => (
           <Thumb
@@ -125,7 +125,7 @@ export function Filmstrip({ photos, index, onJump, reduced }) {
             active={i === index}
             onJump={onJump}
             register={registerWide}
-            className="aspect-[3/2] w-full max-w-[108px] flex-1"
+            className="aspect-3/2 w-full max-w-27 flex-1"
           />
         ))}
         <Marker markerRef={wideMarker} />
@@ -135,7 +135,7 @@ export function Filmstrip({ photos, index, onJump, reduced }) {
       <div
         data-lb-strip
         ref={narrowStrip}
-        className="relative grid shrink-0 grid-cols-5 gap-[5px] px-4 pb-5 lg:hidden"
+        className="relative grid shrink-0 grid-cols-5 gap-bar px-4 pb-5 lg:hidden"
       >
         {photos.map((photo, i) => (
           <Thumb
@@ -146,7 +146,7 @@ export function Filmstrip({ photos, index, onJump, reduced }) {
             active={i === index}
             onJump={onJump}
             register={registerNarrow}
-            className="aspect-[4/3] w-full"
+            className="aspect-4/3 w-full"
           />
         ))}
         <Marker markerRef={narrowMarker} />

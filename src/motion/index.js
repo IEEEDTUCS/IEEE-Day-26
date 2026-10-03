@@ -1,5 +1,18 @@
-export { gsap, ScrollTrigger, Flip, SplitText, DrawSVGPlugin, eases, durations, stagger } from "./gsap";
+export {
+  gsap,
+  ScrollTrigger,
+  Flip,
+  MotionPathPlugin,
+  eases,
+  durations,
+  stagger,
+} from "./gsap";
 export { useLenis, getLenis, scrollToSection, scrollToTop } from "./useLenis";
 export { useReducedMotion, prefersReducedMotion } from "./useReducedMotion";
-export { buildReplayWipe, buildStripeSweep, WIPE_DURATION } from "./timelines/replayWipe";
+export { useScrollRefresh } from "./useScrollRefresh";
+export {
+  buildReplayWipe,
+  buildStripeSweep,
+  WIPE_DURATION,
+} from "./timelines/replayWipe";
 export { buildHeadingReveal } from "./timelines/headingReveal";

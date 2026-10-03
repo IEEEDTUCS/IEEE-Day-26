@@ -1,10 +1,15 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
-import { SplitText } from "gsap/SplitText";
-import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
-gsap.registerPlugin(ScrollTrigger, Flip, SplitText, DrawSVGPlugin);
+// Remesure height after page height changes
+gsap.registerPlugin(
+  ScrollTrigger,
+  Flip,
+
+  MotionPathPlugin,
+);
 
 // Added seprate eases so that its fixed and consistent
 export const eases = {
@@ -29,4 +34,4 @@ if (import.meta.env.DEV) {
   window.__gsap = gsap;
 }
 
-export { gsap, ScrollTrigger, Flip, SplitText, DrawSVGPlugin };
+export { gsap, ScrollTrigger, Flip, MotionPathPlugin };
