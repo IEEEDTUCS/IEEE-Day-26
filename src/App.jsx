@@ -3,8 +3,8 @@ import {
   Hero,
   About,
   Events,
-  Speakers,
-  Schedule,
+  // Speakers,
+  // Schedule,
   Gallery,
   Faqs,
   RegisterCta,
@@ -23,8 +23,8 @@ export function App() {
         <Hero />
         <About />
         <Events />
-        <Speakers />
-        <Schedule />
+        {/*<Speakers />*/}
+        {/*<Schedule />*/}
         <Gallery />
         <Faqs />
         <RegisterCta />

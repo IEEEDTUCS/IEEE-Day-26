@@ -96,7 +96,7 @@ export function OrbitCarousel({ ringRef, events, front, onSelect, onFocusCard })
       */}
       <div
         aria-hidden="false"
-        className="relative z-0 -mt-20 -mb-8 sm:-mb-12 md:-mb-16 sm:-mt-24 md:-mt-36"
+        className="absolute top-0"
         style={{ perspective: "1100px" }}
       >
         <div style={{ transform: "rotate(-2deg) rotateX(-10deg)" }}>
