@@ -4,8 +4,6 @@ import {
   About,
   Events,
   Speakers,
-  Schedule,
-  Sponsors,
   Gallery,
   Faqs,
   RegisterCta,
@@ -25,8 +23,6 @@ export function App() {
         <About />
         <Events />
         <Speakers />
-        <Schedule />
-        <Sponsors />
         <Gallery />
         <Faqs />
         <RegisterCta />
