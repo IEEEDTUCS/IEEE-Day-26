@@ -95,9 +95,8 @@ export function SiteNav() {
         {/* Desktop CTA Action Button - takes straight to footer */}
         <div className="hidden shrink-0 items-center lg:flex">
           <Button
-            href="#contact"
-            onClick={handleScrollTo("contact")}
-            trailing="↓"
+            href="https://ieeedtu.in/ieee-day/register"
+            trailing="↗"
             className="whitespace-nowrap"
           >
             Register
