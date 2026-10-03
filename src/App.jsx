@@ -4,7 +4,7 @@ import {
   About,
   Events,
   // Speakers,
-  // Schedule,
+  Schedule,
   Gallery,
   Faqs,
   RegisterCta,
@@ -24,7 +24,7 @@ export function App() {
         <About />
         <Events />
         {/*<Speakers />*/}
-        {/*<Schedule />*/}
+        <Schedule />
         <Gallery />
         <Faqs />
         <RegisterCta />
