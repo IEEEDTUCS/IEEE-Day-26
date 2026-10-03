@@ -1,4 +1,15 @@
 export { sections, navLinks } from "./navigation";
-export { contacts, venue, socials } from "./contact";
+export {
+  event,
+  hosts,
+  linktree,
+  showEventLeads,
+  eventLeads,
+  LEAD_SLOTS,
+  venues,
+  emails,
+  copyright,
+  footerCopy,
+} from "./contact";
 export { galleryPhotos, galleryLabel } from "./gallery";
 export { events, eventsSection } from "./events";

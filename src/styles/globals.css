@@ -5,6 +5,8 @@
 @import "@fontsource/montserrat/500.css";
 @import "@fontsource/montserrat/600.css";
 @import "@fontsource/montserrat/700.css";
+/* 800 is the footer's column headings and the Know more button. */
+@import "@fontsource/montserrat/800.css";
 @import "@fontsource/inter-tight/900-italic.css";
 
 @import "./tokens.css";
@@ -23,6 +25,13 @@ body {
   font-style: normal;
   font-weight: 700;
   letter-spacing: 0.14em;
+}
+/* Footer headings PLAIN */
+.heading-caps {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.24em;
 }
 
 /* Page container */

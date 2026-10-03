@@ -390,7 +390,7 @@ export function Lightbox({
         {/* Top bar */}
         <div
           data-lb-top
-          className="relative flex h-[68px] shrink-0 items-center justify-between px-4 lg:h-[76px] lg:px-10"
+          className="relative flex h-17 shrink-0 items-center justify-between px-4 lg:h-19 lg:px-10"
         >
           <span className="bg-red px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-paper lg:text-[12px]">
             {galleryLabel}
@@ -452,10 +452,7 @@ export function Lightbox({
             <ChevronLeft size={20} />
           </IconButton>
 
-          <div
-            ref={plate}
-            className="relative h-full min-h-0 w-full max-w-[1160px]"
-          >
+          <div ref={plate} className="relative h-full min-h-0 w-full max-w-290">
             <Slide photo={photo} register={register} brackets />
             {outgoingPhoto && (
               <Slide photo={outgoingPhoto} register={register} />
@@ -478,8 +475,8 @@ export function Lightbox({
                   ref={stripe}
                   className="pointer-events-none absolute inset-y-[-20%] left-0 w-0 opacity-0"
                 >
-                  <span className="absolute inset-y-0 left-0 w-[128px] skew-x-[-14deg] bg-red" />
-                  <span className="absolute inset-y-0 left-[128px] w-bar skew-x-[-14deg] bg-paper" />
+                  <span className="absolute inset-y-0 left-0 w-32 skew-x-[-14deg] bg-red" />
+                  <span className="absolute inset-y-0 left-32 w-bar skew-x-[-14deg] bg-paper" />
                   <span className="absolute inset-y-0 left-[-58px] w-[18px] skew-x-[-14deg] bg-red-deep" />
                   <span className="absolute left-[283px] top-[21%] h-[2px] w-[150px] skew-x-[-14deg] bg-paper/55" />
                   <span className="absolute left-[283px] top-[57%] h-[2px] w-[150px] skew-x-[-14deg] bg-red" />
