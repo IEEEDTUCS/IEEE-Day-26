@@ -3,6 +3,7 @@ import {
   Hero,
   About,
   Events,
+  // Speakers,
   Schedule,
   Gallery,
   Faqs,
@@ -22,6 +23,7 @@ export function App() {
         <Hero />
         <About />
         <Events />
+        {/*<Speakers />*/}
         <Schedule />
         <Gallery />
         <Faqs />

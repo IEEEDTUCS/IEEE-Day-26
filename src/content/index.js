@@ -12,3 +12,4 @@ export {
   footerCopy,
 } from "./contact";
 export { galleryPhotos, galleryLabel } from "./gallery";
+export { events, eventsSection } from "./events";

@@ -42,6 +42,7 @@ playwright-report/
 
 # Claude Code local overrides (shared config stays tracked)
 .claude/settings.local.json
+.freebuff/
 
 # OS files
 Thumbs.db
