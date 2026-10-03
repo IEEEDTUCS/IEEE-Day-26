@@ -1,7 +1,7 @@
 // Fixed section heading component to reuse
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { gsap, eases, useReducedMotion } from "../../motion";
+import { gsap, buildHeadingReveal, useReducedMotion } from "../../motion";
 
 export function SectionHeading({
   children,
@@ -27,9 +27,7 @@ export function SectionHeading({
       const text = scope.current.querySelector("[data-heading-text]");
       const stripe = scope.current.querySelector("[data-heading-stripe]");
 
-      gsap.set(text, { opacity: 0, x: 20, skewX: -6 });
-      gsap.set(stripe, { scaleX: 0, transformOrigin: "left center" });
-
+      // The move itself lives in src/motion — see MOTION.md #2.
       gsap
         .timeline({
           delay,
@@ -39,19 +37,7 @@ export function SectionHeading({
             once: true,
           },
         })
-        .to(stripe, { scaleX: 1, duration: 0.42, ease: eases.snap })
-        .set(text, { opacity: 1 })
-        .to(text, { x: 0, skewX: 0, duration: 0.6, ease: eases.race }, "<")
-        .to(
-          stripe,
-          {
-            scaleX: 0,
-            transformOrigin: "right center",
-            duration: 0.42,
-            ease: eases.snap,
-          },
-          "<0.04",
-        );
+        .add(buildHeadingReveal({ text, stripe }));
     },
     { scope, dependencies: [reveal, reduced, start, delay] },
   );
