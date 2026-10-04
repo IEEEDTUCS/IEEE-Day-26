@@ -179,7 +179,7 @@ export const events = [
       brief:
         "Fully autonomous maze navigation testing accuracy, sensing, path planning and decision-making. Robots must independently cross a covered 3 × 3 m maze, beat the dead ends and reach the centre finish with no human or remote intervention. Navigate. Survive. Conquer the castle.",
       facts: [
-        { label: "Date", value: "17 Oct, 12:00 PM" },
+        { label: "Date", value: "17 Oct, 4:00 PM" },
         { label: "Duration", value: "2 Hours" },
         { label: "Team", value: "3 – 5" },
       ],
@@ -219,7 +219,7 @@ export const events = [
       brief:
         "A high-speed wireless rover race testing speed, precision and control. Teams run a Melbourne F1-style track featuring ramps, rollers, gravel pits and airborne sections. Three laps per attempt, two attempts per team — balance aggressive driving with precision and avoid penalties. Accelerate. Control. Conquer.",
       facts: [
-        { label: "Date", value: "17 Oct, 12:00 PM" },
+        { label: "Date", value: "17 Oct, 4:00 PM" },
         { label: "Duration", value: "2 Hours" },
         { label: "Team", value: "3 – 5" },
       ],
@@ -262,7 +262,7 @@ export const events = [
       brief:
         "A head-to-head pushing competition that puts power, traction, control and strategy to the test. Two remotely controlled robots face off in a circular arena — push the opponent completely outside the boundary or immobilise it. Two-minute matches, knockout rounds: every push decides the winner.",
       facts: [
-        { label: "Date", value: "17 Oct, 12:30 PM" },
+        { label: "Date", value: "17 Oct, 4:30 PM" },
         { label: "Duration", value: "2 Hours" },
         { label: "Team", value: "3 – 5" },
       ],
