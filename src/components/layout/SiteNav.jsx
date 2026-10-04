@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { BrandMark } from "./BrandMark";
+import { HostMarks } from "./HostMarks";
 import { Button } from "../ui";
 import { scrollToSection } from "../../motion";
 import { navLinks, sections } from "../../content";
@@ -9,22 +10,26 @@ export function SiteNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const headerRef = useRef(null);
+  const barRef = useRef(null);
 
   // Publish the nav height so scroll offsets can't drift out of sync.
   useEffect(() => {
-    const el = headerRef.current;
-    if (!el) return undefined;
+    const header = headerRef.current;
+    const bar = barRef.current;
+    if (!header || !bar) return undefined;
 
+    // The bar only — an open mobile menu must not inflate the scroll offset.
     const publish = () => {
+      const border = header.offsetHeight - header.clientHeight;
       document.documentElement.style.setProperty(
         "--nav-height",
-        `${el.offsetHeight}px`,
+        `${bar.offsetHeight + border}px`,
       );
     };
 
     publish();
     const observer = new ResizeObserver(publish);
-    observer.observe(el);
+    observer.observe(bar);
     return () => observer.disconnect();
   }, []);
 
@@ -60,12 +65,15 @@ export function SiteNav() {
       ref={headerRef}
       className="fixed inset-x-0 top-0 z-50 border-b border-silver bg-paper"
     >
-      <div className="container-page flex items-center justify-between py-4">
+      <div
+        ref={barRef}
+        className="container-page flex items-center justify-between gap-4 py-4 xl:py-4.5"
+      >
         <BrandMark />
 
         {/* Desktop Navigation */}
         <nav
-          className="hidden items-center gap-3 text-label font-semibold uppercase tracking-[0.08em] text-charcoal lg:flex xl:gap-7"
+          className="hidden items-center gap-3 text-label font-semibold uppercase tracking-[0.08em] text-charcoal lg:flex xl:gap-6"
           aria-label="Primary navigation"
         >
           {navLinks.map((link) => {
@@ -93,7 +101,10 @@ export function SiteNav() {
         </nav>
 
         {/* Desktop CTA Action Button - takes straight to footer */}
-        <div className="hidden shrink-0 items-center lg:flex">
+        <div className="hidden shrink-0 items-center gap-4 lg:flex xl:gap-5">
+          <span aria-hidden="true" className="h-9 w-px bg-silver xl:h-12" />
+          <HostMarks />
+          <span aria-hidden="true" className="h-9 w-px bg-silver xl:h-12" />
           <Button
             href="https://ieeedtu.in/ieee-day/register"
             trailing="↗"

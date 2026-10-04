@@ -1,4 +1,4 @@
-// All Footer contents
+// Footer, nav logos and shared host data
 
 export const event = {
   name: "IEEE Day",
@@ -17,6 +17,18 @@ export const hosts = [
       width: 160,
       height: 44,
     },
+    navMark: {
+      src: "/logos/ieee-dtu-sb-nav.webp",
+      alt: "Delhi Technological University IEEE Student Branch",
+      width: 398,
+      height: 108,
+    },
+    navSeal: {
+      src: "/logos/dtu-seal-nav.webp",
+      alt: "Delhi Technological University",
+      width: 120,
+      height: 120,
+    },
     socials: {
       instagram: "https://www.instagram.com/ieee.dtu",
       linkedin: "https://www.linkedin.com/company/ieee-dtu/",
@@ -32,6 +44,18 @@ export const hosts = [
       alt: "IEEE GTBIT Student Branch",
       width: 52,
       height: 52,
+    },
+    navMark: {
+      src: "/logos/ieee-gtbit-sb-nav.webp",
+      alt: "IEEE GTBIT Student Branch",
+      width: 120,
+      height: 120,
+    },
+    navSeal: {
+      src: "/logos/gtbit-seal-nav.webp",
+      alt: "Guru Tegh Bahadur Institute of Technology",
+      width: 120,
+      height: 120,
     },
     socials: {
       instagram: "https://www.instagram.com/ieeegtbit",

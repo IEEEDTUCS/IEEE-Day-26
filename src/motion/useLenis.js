@@ -25,8 +25,9 @@ function navHeight() {
   return parseFloat(raw) || 0;
 }
 
-// Animations explained in gsap.js
-const expoOut = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
+// Animations explained in gsap.js. Exported because the Schedule's day buttons jump to a
+// measured offset rather than a section, so they can't go through scrollToSection.
+export const expoOut = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
 
 // Scrolling functions
 export function scrollToSection(id, { immediate = false } = {}) {

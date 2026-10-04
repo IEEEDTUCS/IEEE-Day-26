@@ -50,9 +50,21 @@ export const events = [
         { label: "Also", value: "Logic · Aptitude" },
       ],
       rounds: [
-        { id: "R_01", title: "Scan the starting QR — first challenge", checkpoint: "Start" },
-        { id: "R_02", title: "Solve and submit through Google Forms", checkpoint: "Relay" },
-        { id: "R_03", title: "Riddle relay through the campus", checkpoint: "Finish" },
+        {
+          id: "R_01",
+          title: "Scan the starting QR — first challenge",
+          checkpoint: "Start",
+        },
+        {
+          id: "R_02",
+          title: "Solve and submit through Google Forms",
+          checkpoint: "Relay",
+        },
+        {
+          id: "R_03",
+          title: "Riddle relay through the campus",
+          checkpoint: "Finish",
+        },
       ],
       closesAt: "20 October 2026 | 09:59 PM IST",
     },
@@ -95,8 +107,16 @@ export const events = [
       ],
       rounds: [
         { id: "R_01", title: "Ideation & build sprint", checkpoint: "H+0" },
-        { id: "R_02", title: "Surprise challenge drop — adapt the solution", checkpoint: "H+3" },
-        { id: "R_03", title: "Deployment & pitch to the pit wall", checkpoint: "H+6" },
+        {
+          id: "R_02",
+          title: "Surprise challenge drop — adapt the solution",
+          checkpoint: "H+3",
+        },
+        {
+          id: "R_03",
+          title: "Deployment & pitch to the pit wall",
+          checkpoint: "H+6",
+        },
       ],
       closesAt: "16 October 2026 | 07:30 PM IST",
     },
@@ -130,7 +150,11 @@ export const events = [
         { label: "Gear", value: "Laptop / phone" },
       ],
       rounds: [
-        { id: "R_01", title: "Grid navigation — solve the path in pseudocode", checkpoint: "Round 1" },
+        {
+          id: "R_01",
+          title: "Grid navigation — solve the path in pseudocode",
+          checkpoint: "Round 1",
+        },
         { id: "R_02", title: "Technical bidding round", checkpoint: "Round 2" },
       ],
       closesAt: "20 October 2026 | 09:59 PM IST",
@@ -165,7 +189,11 @@ export const events = [
         { label: "Control", value: "Autonomous" },
       ],
       rounds: [
-        { id: "R_01", title: "Attempt 1 — best valid time counts", checkpoint: "3 × 5 min" },
+        {
+          id: "R_01",
+          title: "Attempt 1 — best valid time counts",
+          checkpoint: "3 × 5 min",
+        },
         { id: "R_02", title: "Attempt 2", checkpoint: "3 × 5 min" },
         { id: "R_03", title: "Attempt 3 — final run", checkpoint: "3 × 5 min" },
       ],
@@ -201,8 +229,16 @@ export const events = [
         { label: "Control", value: "Wireless" },
       ],
       rounds: [
-        { id: "R_01", title: "Attempt 1 — three laps, penalties apply", checkpoint: "2 attempts" },
-        { id: "R_02", title: "Attempt 2 — best valid run counts", checkpoint: "2 attempts" },
+        {
+          id: "R_01",
+          title: "Attempt 1 — three laps, penalties apply",
+          checkpoint: "2 attempts",
+        },
+        {
+          id: "R_02",
+          title: "Attempt 2 — best valid run counts",
+          checkpoint: "2 attempts",
+        },
       ],
       closesAt: "20 October 2026 | 09:59 PM IST",
     },
@@ -236,7 +272,11 @@ export const events = [
         { label: "Control", value: "Remote" },
       ],
       rounds: [
-        { id: "R_01", title: "Group matches — best push record advances", checkpoint: "2 min" },
+        {
+          id: "R_01",
+          title: "Group matches — best push record advances",
+          checkpoint: "2 min",
+        },
         { id: "R_02", title: "Knockout bracket & final", checkpoint: "KO" },
       ],
       closesAt: "20 October 2026 | 09:59 PM IST",
@@ -261,8 +301,8 @@ export const events = [
       brief:
         "TinkerCase 4.0 is IEEE DTU's hardware showcase. Round one is an online idea submission (max four slides) via Unstop; qualified teams bring fully assembled hardware to the on-campus showcase — no assembly time on site. Seven tracks run in parallel, from green electronics to VLSI and open innovation.",
       facts: [
-        { label: "Idea round", value: "10 Oct, online" },
-        { label: "Showcase", value: "16 Oct, campus" },
+        { label: "Idea round", value: "10 Oct, 10 AM – 5 PM, online" },
+        { label: "Showcase", value: "16 Oct, 1:00 PM, campus" },
         { label: "Team", value: "1 – 4" },
       ],
       specs: [
@@ -271,8 +311,16 @@ export const events = [
         { label: "Gear", value: "Own laptop" },
       ],
       rounds: [
-        { id: "R_01", title: "Idea submission — online PPT via Unstop", checkpoint: "10 Oct" },
-        { id: "R_02", title: "Hardware showcase — on-campus, assembled", checkpoint: "16 Oct" },
+        {
+          id: "R_01",
+          title: "Idea submission — online PPT via Unstop",
+          checkpoint: "10 Oct",
+        },
+        {
+          id: "R_02",
+          title: "Hardware showcase — on-campus, assembled",
+          checkpoint: "16 Oct",
+        },
       ],
     },
   },
@@ -295,8 +343,8 @@ export const events = [
       brief:
         "Dream Forge 3.0 ignites the problem-solving and entrepreneurial mindset. It opens with an online quiz on business, innovation and current affairs (team leader only), then qualified teams receive a real-world business problem on the spot, prepare a PPT and pitch it to the jury the same day.",
       facts: [
-        { label: "Quiz", value: "10 Oct, online" },
-        { label: "Finals", value: "16 Oct, campus" },
+        { label: "Quiz", value: "10 Oct, 10 AM – midnight, online" },
+        { label: "Finals", value: "16 Oct, 11:00 AM, campus" },
         { label: "Team", value: "1 – 4" },
       ],
       specs: [
@@ -305,9 +353,21 @@ export const events = [
         { label: "Eligibility", value: "Cross-college" },
       ],
       rounds: [
-        { id: "R_01", title: "Preliminary round — online quiz on Unstop", checkpoint: "10 Oct" },
-        { id: "R_02", title: "Case problem & PPT preparation, on-campus", checkpoint: "16 Oct" },
-        { id: "R_03", title: "Final PPT presentations before the jury", checkpoint: "16 Oct" },
+        {
+          id: "R_01",
+          title: "Preliminary round — online quiz on Unstop",
+          checkpoint: "10 Oct",
+        },
+        {
+          id: "R_02",
+          title: "Case problem & PPT preparation, on-campus",
+          checkpoint: "16 Oct",
+        },
+        {
+          id: "R_03",
+          title: "Final PPT presentations before the jury",
+          checkpoint: "16 Oct",
+        },
       ],
       closesAt: "15 October 2026",
     },
@@ -331,8 +391,8 @@ export const events = [
       brief:
         "DataHeist is a four-hour CTF × machine-learning challenge: teams crack a series of challenges to uncover datasets, identify which data is useful, and build the best predictive model for a real-world problem. An online quiz on ML, basic CTF and statistics gates the offline round.",
       facts: [
-        { label: "Quiz", value: "13 Oct, online" },
-        { label: "Finals", value: "16 Oct, 11 AM" },
+        { label: "Quiz", value: "13 Oct, 10 AM – 2 PM, online" },
+        { label: "Finals", value: "16 Oct, 11:00 AM" },
         { label: "Team", value: "1 – 3" },
       ],
       specs: [
@@ -341,8 +401,16 @@ export const events = [
         { label: "Internet", value: "Allowed" },
       ],
       rounds: [
-        { id: "R_01", title: "Online quiz — ML, basic CTF, statistics", checkpoint: "13 Oct" },
-        { id: "R_02", title: "Offline round — crack, clean, predict", checkpoint: "16 Oct" },
+        {
+          id: "R_01",
+          title: "Online quiz — ML, basic CTF, statistics",
+          checkpoint: "13 Oct",
+        },
+        {
+          id: "R_02",
+          title: "Offline round — crack, clean, predict",
+          checkpoint: "16 Oct",
+        },
       ],
     },
   },
