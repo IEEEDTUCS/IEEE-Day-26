@@ -1,30 +1,77 @@
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap, eases, useReducedMotion } from "../../../motion";
 import { SectionHeading } from "../../ui";
 
+const HEADING_ID = "register-heading";
+
 export function RegisterCta() {
+  const scope = useRef(null);
+  const reduced = useReducedMotion();
+
+  useGSAP(
+    () => {
+      if (reduced) return;
+      const q = gsap.utils.selector(scope);
+
+      // Set initial state
+      gsap.set(q("[data-reg-item]"), { opacity: 0, y: 24 });
+
+      // Stagger rise-in on scroll — same pattern as FAQs section
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: scope.current,
+            start: "top 78%",
+            once: true,
+          },
+        })
+        .to(q("[data-reg-item]"), {
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          ease: eases.race,
+          stagger: 0.12,
+          clearProps: "transform",
+        });
+    },
+    { scope, dependencies: [reduced] },
+  );
+
   return (
     <section
       id="register"
-      className="relative flex min-h-[60vh] items-center justify-center overflow-hidden border-t border-silver bg-paper py-28 sm:py-36"
+      ref={scope}
+      aria-labelledby={HEADING_ID}
+      className="relative overflow-hidden border-t border-silver bg-paper py-28 sm:py-36"
     >
       <div className="container-page relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center text-center">
-        <SectionHeading>Register</SectionHeading>
+        {/* Heading uses the same `reveal` prop as every other section */}
+        <SectionHeading reveal id={HEADING_ID} align="center" start="top 78%">
+          Register
+        </SectionHeading>
 
-        <p className="mb-12 mt-6 max-w-2xl text-[17px] leading-relaxed text-charcoal/80">
-          IEEE Day 2026 runs across two campuses. Choose your campus to register on Unstop.
+        <p
+          data-reg-item
+          className="mb-12 mt-6 max-w-2xl text-[17px] leading-relaxed text-charcoal/80"
+        >
+          IEEE Day 2026 runs across two campuses. Choose your campus to register
+          on Unstop.
         </p>
 
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-10">
           {/* DTU Card */}
           <a
+            data-reg-item
             href="https://unstop.com/college-fests/ieee-day-2026-delhi-technological-university-dtu-new-delhi-514223"
             target="_blank"
             rel="noreferrer"
             className="group relative flex flex-col overflow-hidden border-2 border-charcoal bg-paper p-8 text-left transition-[transform,border-color] duration-150 ease-race hover:-translate-y-1 hover:border-red focus-visible:-translate-y-1 focus-visible:border-red"
           >
-            {/* Accent bar */}
+            {/* Animated accent bar — grows full-height on hover */}
             <span
               aria-hidden="true"
-              className="absolute left-0 top-0 h-[38%] w-1.5 bg-red transition-[height] duration-150 ease-race group-hover:h-full group-focus-visible:h-full"
+              className="absolute left-0 top-0 h-[38%] w-1.5 bg-red transition-[height] duration-300 ease-race group-hover:h-full group-focus-visible:h-full"
             />
 
             <h3 className="mb-3 text-[28px] font-bold uppercase leading-none tracking-tight text-charcoal">
@@ -43,15 +90,16 @@ export function RegisterCta() {
 
           {/* GTBIT Card */}
           <a
+            data-reg-item
             href="https://unstop.com/college-fests/ieee-day-2026-institute-of-electrical-and-electronics-engineers-gtbit-517795/"
             target="_blank"
             rel="noreferrer"
             className="group relative flex flex-col overflow-hidden border-2 border-charcoal bg-paper p-8 text-left transition-[transform,border-color] duration-150 ease-race hover:-translate-y-1 hover:border-red focus-visible:-translate-y-1 focus-visible:border-red"
           >
-            {/* Accent bar */}
+            {/* Animated accent bar */}
             <span
               aria-hidden="true"
-              className="absolute left-0 top-0 h-[38%] w-1.5 bg-red transition-[height] duration-150 ease-race group-hover:h-full group-focus-visible:h-full"
+              className="absolute left-0 top-0 h-[38%] w-1.5 bg-red transition-[height] duration-300 ease-race group-hover:h-full group-focus-visible:h-full"
             />
 
             <h3 className="mb-3 text-[28px] font-bold uppercase leading-none tracking-tight text-charcoal">

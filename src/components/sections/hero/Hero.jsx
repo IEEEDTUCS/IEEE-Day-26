@@ -308,7 +308,8 @@ export function Hero() {
               </Button>
               <Button
                 variant="secondary"
-                href="https://ieeedtu.in/ieee-day/register"
+                href="#register"
+                onClick={scrollTo("register")}
                 className="hero-btn"
               >
                 Register Now ↗
