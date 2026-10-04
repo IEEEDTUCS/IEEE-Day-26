@@ -301,7 +301,7 @@ export const events = [
       brief:
         "TinkerCase 4.0 is IEEE DTU's hardware showcase. Round one is an online idea submission (max four slides) via Unstop; qualified teams bring fully assembled hardware to the on-campus showcase — no assembly time on site. Seven tracks run in parallel, from green electronics to VLSI and open innovation.",
       facts: [
-        { label: "Idea round", value: "10 Oct, 10 AM – 5 PM, online" },
+        { label: "Idea round", value: "10 Oct, 10 AM – 4 PM, online" },
         { label: "Showcase", value: "16 Oct, 1:00 PM, campus" },
         { label: "Team", value: "1 – 4" },
       ],
@@ -343,7 +343,7 @@ export const events = [
       brief:
         "Dream Forge 3.0 ignites the problem-solving and entrepreneurial mindset. It opens with an online quiz on business, innovation and current affairs (team leader only), then qualified teams receive a real-world business problem on the spot, prepare a PPT and pitch it to the jury the same day.",
       facts: [
-        { label: "Quiz", value: "10 Oct, 10 AM – midnight, online" },
+        { label: "Quiz", value: "10 Oct, 10 AM – 4 PM, online" },
         { label: "Finals", value: "16 Oct, 11:00 AM, campus" },
         { label: "Team", value: "1 – 4" },
       ],
@@ -391,7 +391,7 @@ export const events = [
       brief:
         "DataHeist is a four-hour CTF × machine-learning challenge: teams crack a series of challenges to uncover datasets, identify which data is useful, and build the best predictive model for a real-world problem. An online quiz on ML, basic CTF and statistics gates the offline round.",
       facts: [
-        { label: "Quiz", value: "13 Oct, 10 AM – 2 PM, online" },
+        { label: "Quiz", value: "13 Oct, 10 AM – 4 PM, online" },
         { label: "Finals", value: "16 Oct, 11:00 AM" },
         { label: "Team", value: "1 – 3" },
       ],
