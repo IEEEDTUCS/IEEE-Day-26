@@ -88,8 +88,8 @@ export function useAboutMotion(scope) {
         return undefined;
       }
 
-      const slabs = q("[data-ab-slab]");
-      const slabBar = q("[data-ab-slab-bar]");
+      const slabs = q("[data-slab]");
+      const slabBar = q("[data-slab-bar]");
       const plate = q("[data-ab-plate]");
       const kicker = q("[data-ab-kicker]");
       const titleRule = q("[data-ab-rule]");

@@ -6,7 +6,7 @@ import { AboutStats } from "./AboutStats";
 import { HostCard } from "./HostCard";
 import { HostTrack } from "./HostTrack";
 import { useAboutMotion } from "./useAboutMotion";
-import { Button } from "../../ui";
+import { Button, CornerSlabs } from "../../ui";
 import { scrollToSection } from "../../../motion";
 import { about } from "../../../content";
 
@@ -33,10 +33,7 @@ function Arrow() {
   );
 }
 
-// Both bands slant the same way: a slab clipped at 64px, the band's top edge
-// stepping up at 49%. Never skew — skew drags the contents with it.
-const SLAB =
-  "[clip-path:polygon(36px_0,100%_0,100%_100%,0_100%)] lg:[clip-path:polygon(64px_0,100%_0,100%_100%,0_100%)]";
+// The dark band's top edge steps up at 49%. Never skew — skew drags the contents with it.
 const BAND =
   "[clip-path:polygon(0_36px,38%_36px,46%_0,100%_0,100%_100%,0_100%)] lg:[clip-path:polygon(0_56px,46%_56px,49%_0,100%_0,100%_100%,0_100%)]";
 
@@ -75,21 +72,7 @@ export function About() {
       aria-labelledby={HEADING_ID}
       className="relative mt-24 overflow-hidden bg-paper text-charcoal lg:mt-32"
     >
-      {/* Top-right corner slabs */}
-      <div aria-hidden="true">
-        <span
-          data-ab-slab
-          className={`absolute -right-5 top-0 block h-9 w-42.5 bg-silver lg:-right-7.5 lg:h-15 lg:w-95 ${SLAB}`}
-        />
-        <span
-          data-ab-slab
-          className={`absolute -right-5 top-0 block h-9 w-20 bg-charcoal lg:-right-7.5 lg:h-15 lg:w-45 ${SLAB}`}
-        />
-        <span
-          data-ab-slab-bar
-          className="absolute right-15 top-9 block h-1 w-27.5 origin-right bg-red [clip-path:polygon(6px_0,100%_0,calc(100%-6px)_100%,0_100%)] lg:right-37.5 lg:top-15 lg:h-1.5 lg:w-57.5"
-        />
-      </div>
+      <CornerSlabs />
 
       <div data-ab-top className="relative">
         <div aria-hidden="true">
