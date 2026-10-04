@@ -14,3 +14,4 @@ export {
 export { galleryPhotos, galleryLabel } from "./gallery";
 export { events, eventsSection } from "./events";
 export { about } from "./about";
+export { faqs, faqsSection } from "./faqs";
