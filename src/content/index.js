@@ -16,3 +16,4 @@ export { events, eventsSection } from "./events";
 export { about } from "./about";
 export { scheduleSection, scheduleDays, getScheduleDays } from "./schedule";
 export { faqs, faqsSection } from "./faqs";
+export { teamMembers, teamSection } from "./team";

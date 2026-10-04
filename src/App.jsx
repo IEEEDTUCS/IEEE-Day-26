@@ -6,6 +6,7 @@ import {
   // Speakers,
   Schedule,
   Gallery,
+  Teams,
   Faqs,
   RegisterCta,
 } from "./components/sections";
@@ -27,6 +28,7 @@ export function App() {
         {/*<Speakers />*/}
         <Schedule />
         <Gallery />
+        <Teams />
         <Faqs />
         <RegisterCta />
       </main>
