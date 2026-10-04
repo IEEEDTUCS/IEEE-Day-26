@@ -52,7 +52,10 @@ const AT = {
 const SWEEP =
   "absolute -inset-[2px] origin-left scale-x-0 transition-transform duration-(--duration-base) ease-race group-hover:scale-x-100 group-focus-visible:scale-x-100";
 
-const PAGE_LINKS = navLinks.filter((link) => link.id !== "home");
+const PAGE_LINKS = [
+  ...navLinks.filter((link) => link.id !== "home"),
+  { id: "register", label: "Register" },
+];
 const [dtuHost, gtbitHost] = hosts;
 
 function ColumnHeading({ id, label, at, ruleAt }) {
