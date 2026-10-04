@@ -43,7 +43,7 @@ export function RegisterCta() {
 
           {/* GTBIT Card */}
           <a
-            href="https://unstop.com/college-fests/ieee-day-2026-institute-of-electrical-and-electronics-engineers-gtbit-517795/amp"
+            href="https://unstop.com/college-fests/ieee-day-2026-institute-of-electrical-and-electronics-engineers-gtbit-517795/"
             target="_blank"
             rel="noreferrer"
             className="group relative flex flex-col overflow-hidden border-2 border-charcoal bg-paper p-8 text-left transition-[transform,border-color] duration-150 ease-race hover:-translate-y-1 hover:border-red focus-visible:-translate-y-1 focus-visible:border-red"
