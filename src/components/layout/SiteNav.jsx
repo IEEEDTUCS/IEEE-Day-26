@@ -106,9 +106,9 @@ export function SiteNav() {
           <HostMarks />
           <span aria-hidden="true" className="h-9 w-px bg-silver xl:h-12" />
           <Button
-            href="https://ieeedtu.in/ieee-day/register"
+            onClick={(e) => { e.preventDefault(); scrollToSection("register"); }}
             trailing="↗"
-            className="whitespace-nowrap"
+            className="whitespace-nowrap cursor-pointer"
           >
             Register
           </Button>
