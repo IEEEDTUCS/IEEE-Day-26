@@ -113,7 +113,7 @@ export function TeamCard({ member, index }) {
               </span>
               {/* Handwritten Cursive "Council" / "Guest" */}
               <span className="vip-script-overlay absolute -left-1 top-0.5 text-2xl md:text-3xl text-[#5ce1e6] font-bold select-none pointer-events-none">
-                Council
+                Team
               </span>
             </div>
 
