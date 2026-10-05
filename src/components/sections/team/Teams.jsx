@@ -11,6 +11,7 @@ import { gsap, eases, useReducedMotion } from "../../../motion";
 import { teamMembers, teamSection } from "../../../content";
 import { TeamCard } from "./TeamCard";
 import { Play, Pause } from "lucide-react";
+import {gtbitTeam} from "../../../content/team.js";
 
 const HEADING_ID = "team-heading";
 
@@ -183,7 +184,7 @@ export function Teams() {
                 key={`primary-${member.id}`}
                 className="w-[280px] shrink-0 md:w-[310px] min-w-[270px] max-w-[340px]"
               >
-                <TeamCard member={member} index={i} />
+                  <TeamCard member={member} index={i} team={"DTU"}/>
               </div>
             ))}
           </div>
@@ -195,12 +196,46 @@ export function Teams() {
                 key={`duplicate-${member.id}`}
                 className="w-[280px] shrink-0 md:w-[310px] min-w-[270px] max-w-[340px]"
               >
-                <TeamCard member={member} index={i} />
+                <TeamCard member={member} index={i} team={"DTU"}/>
               </div>
             ))}
           </div>
         </div>
       </div>
+        {/*gtbit marquee*/}
+        <div
+            data-team-marquee
+            className="team-marquee-container w-full overflow-hidden pt-2 pb-6"
+        >
+            <div
+                ref={trackRef}
+                className={`team-marquee-track flex ${isPaused ? "is-paused" : ""}`}
+            >
+                {/* First Set of Members */}
+                <div className="flex gap-4 md:gap-6 pr-4 md:pr-6 shrink-0">
+                    {gtbitTeam.map((member, i) => (
+                        <div
+                            key={`primary-${member.id}`}
+                            className="w-[280px] shrink-0 md:w-[310px] min-w-[270px] max-w-[340px]"
+                        >
+                            <TeamCard member={member} index={i} team="GTBIT" />
+                        </div>
+                    ))}
+                </div>
+
+                {/* Duplicated Set for Seamless Infinite Loop */}
+                <div className="flex gap-4 md:gap-6 pr-4 md:pr-6 shrink-0" aria-hidden="true">
+                    {gtbitTeam.map((member, i) => (
+                        <div
+                            key={`duplicate-${member.id}`}
+                            className="w-[280px] shrink-0 md:w-[310px] min-w-[270px] max-w-[340px]"
+                        >
+                            <TeamCard member={member} index={i} team="GTBIT" />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
     </section>
   );
 }

@@ -68,7 +68,9 @@ export const teamMembers = [
     instagram: "https://www.instagram.com/_mridul_mor/",
     linkedin: "https://www.linkedin.com/in/mridul-mor/",
   },
-  //gtbit peeps 
+];
+
+export const gtbitTeam = [
   {
     id: "gurasees-singh",
     image: "Gurasees Singh - Treasurer and Student Advisor.jpg",
@@ -125,4 +127,4 @@ export const teamMembers = [
     instagram: null,
     linkedin: null,
   },
-];
+]

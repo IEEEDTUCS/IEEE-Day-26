@@ -11,7 +11,7 @@ import { InstagramIcon, LinkedInIcon } from "./SocialIcons";
  * - Framed credential portrait photo with corner telemetry marks
  * - Member name and role badge with sleek social links
  */
-export function TeamCard({ member, index }) {
+export function TeamCard({ member, index, team }) {
   const { image, name, role, instagram, linkedin } = member;
   const passNumber = String(index + 1).padStart(2, "0");
 
@@ -108,13 +108,14 @@ export function TeamCard({ member, index }) {
           <div className="relative flex items-center justify-between">
             {/* Bold VIP Typography */}
             <div className="relative flex items-baseline">
-              <span className="font-heading font-black italic text-3xl md:text-4xl tracking-tight text-black drop-shadow-[0_2px_0_rgba(255,255,255,0.2)]">
-                VIP
-              </span>
+              <img src={team === 'DTU' ? "/logos/ieee_dtu_black.png" : "/logos/ieee_gtbit_black.png"} className={team === 'DTU' ? "w-24" : "w-12"}/>
+              {/*<span className="font-heading font-black italic text-3xl md:text-4xl tracking-tight text-black drop-shadow-[0_2px_0_rgba(255,255,255,0.2)]">*/}
+              {/*  VIP*/}
+              {/*</span>*/}
               {/* Handwritten Cursive "Council" / "Guest" */}
-              <span className="vip-script-overlay absolute -left-1 top-0.5 text-2xl md:text-3xl text-[#5ce1e6] font-bold select-none pointer-events-none">
-                Team
-              </span>
+              {/*<span className="vip-script-overlay absolute -left-1 top-0.5 text-2xl md:text-3xl text-[#5ce1e6] font-bold select-none pointer-events-none">*/}
+              {/*  Team*/}
+              {/*</span>*/}
             </div>
 
             {/* Access Level Badge */}
