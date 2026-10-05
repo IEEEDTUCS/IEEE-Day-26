@@ -8,7 +8,7 @@
 export const teamSection = {
   label: "THE PEOPLE BEHIND THE WORK",
   heading: "Meet the",
-  headingAccent: "council.",
+  headingAccent: "team.",
 };
 
 export const teamMembers = [
