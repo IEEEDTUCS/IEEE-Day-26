@@ -197,7 +197,7 @@ export const events = [
         { id: "R_02", title: "Attempt 2", checkpoint: "3 × 5 min" },
         { id: "R_03", title: "Attempt 3 — final run", checkpoint: "3 × 5 min" },
       ],
-      closesAt: "17 October 2026 | 07:30 PM IST",
+      closesAt: "16 October 2026 | 07:30 PM IST",
     },
   },
   {
@@ -240,7 +240,7 @@ export const events = [
           checkpoint: "2 attempts",
         },
       ],
-      closesAt: "17 October 2026 | 07:30 PM IST",
+      closesAt: "16 October 2026 | 07:30 PM IST",
     },
   },
   {
@@ -279,7 +279,7 @@ export const events = [
         },
         { id: "R_02", title: "Knockout bracket & final", checkpoint: "KO" },
       ],
-      closesAt: "17 October 2026 | 07:30 PM IST",
+      closesAt: "16 October 2026 | 07:30 PM IST",
     },
   },
   {
