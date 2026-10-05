@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { SiteNav, Footer } from "./components/layout";
 import {
   Hero,
@@ -33,6 +34,7 @@ export function App() {
         <RegisterCta />
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 }
