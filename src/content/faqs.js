@@ -99,9 +99,8 @@ export const faqs = [
       "Tap Register on any event card — it opens that event's Unstop page. Closing dates vary, so check yours:",
     facts: [
       { label: "HackSprint", value: "16 Oct · 7:30 PM" },
-      { label: "Dream Forge", value: "15 Oct" },
-      { label: "GTBIT events", value: "20 Oct · 9:59 PM" },
-      { label: "DTU online rounds", value: "10 & 13 Oct" },
+      { label: "GTBIT events", value: "17 Oct · 7:30 PM" },
+      { label: "DTU online rounds", value: "13 Oct" },
     ],
     goto: "events",
     gotoLabel: "Go to the event grid",

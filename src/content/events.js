@@ -66,7 +66,7 @@ export const events = [
           checkpoint: "Finish",
         },
       ],
-      closesAt: "20 October 2026 | 09:59 PM IST",
+      closesAt: "17 October 2026 | 07:30 PM IST",
     },
   },
   {
@@ -157,7 +157,7 @@ export const events = [
         },
         { id: "R_02", title: "Technical bidding round", checkpoint: "Round 2" },
       ],
-      closesAt: "20 October 2026 | 09:59 PM IST",
+      closesAt: "17 October 2026 | 07:30 PM IST",
     },
   },
   {
@@ -179,7 +179,7 @@ export const events = [
       brief:
         "Fully autonomous maze navigation testing accuracy, sensing, path planning and decision-making. Robots must independently cross a covered 3 × 3 m maze, beat the dead ends and reach the centre finish with no human or remote intervention. Navigate. Survive. Conquer the castle.",
       facts: [
-        { label: "Date", value: "17 Oct, 4:00 PM" },
+        { label: "Date", value: "17 Oct, 12:00 PM" },
         { label: "Duration", value: "2 Hours" },
         { label: "Team", value: "3 – 5" },
       ],
@@ -197,7 +197,7 @@ export const events = [
         { id: "R_02", title: "Attempt 2", checkpoint: "3 × 5 min" },
         { id: "R_03", title: "Attempt 3 — final run", checkpoint: "3 × 5 min" },
       ],
-      closesAt: "20 October 2026 | 09:59 PM IST",
+      closesAt: "17 October 2026 | 07:30 PM IST",
     },
   },
   {
@@ -219,7 +219,7 @@ export const events = [
       brief:
         "A high-speed wireless rover race testing speed, precision and control. Teams run a Melbourne F1-style track featuring ramps, rollers, gravel pits and airborne sections. Three laps per attempt, two attempts per team — balance aggressive driving with precision and avoid penalties. Accelerate. Control. Conquer.",
       facts: [
-        { label: "Date", value: "17 Oct, 4:00 PM" },
+        { label: "Date", value: "17 Oct, 12:00 PM" },
         { label: "Duration", value: "2 Hours" },
         { label: "Team", value: "3 – 5" },
       ],
@@ -240,7 +240,7 @@ export const events = [
           checkpoint: "2 attempts",
         },
       ],
-      closesAt: "20 October 2026 | 09:59 PM IST",
+      closesAt: "17 October 2026 | 07:30 PM IST",
     },
   },
   {
@@ -262,7 +262,7 @@ export const events = [
       brief:
         "A head-to-head pushing competition that puts power, traction, control and strategy to the test. Two remotely controlled robots face off in a circular arena — push the opponent completely outside the boundary or immobilise it. Two-minute matches, knockout rounds: every push decides the winner.",
       facts: [
-        { label: "Date", value: "17 Oct, 4:30 PM" },
+        { label: "Date", value: "17 Oct, 12:00 PM" },
         { label: "Duration", value: "2 Hours" },
         { label: "Team", value: "3 – 5" },
       ],
@@ -279,7 +279,7 @@ export const events = [
         },
         { id: "R_02", title: "Knockout bracket & final", checkpoint: "KO" },
       ],
-      closesAt: "20 October 2026 | 09:59 PM IST",
+      closesAt: "17 October 2026 | 07:30 PM IST",
     },
   },
   {
@@ -302,7 +302,7 @@ export const events = [
         "TinkerCase 4.0 is IEEE DTU's hardware showcase. Round one is an online idea submission (max four slides) via Unstop; qualified teams bring fully assembled hardware to the on-campus showcase — no assembly time on site. Seven tracks run in parallel, from green electronics to VLSI and open innovation.",
       facts: [
         { label: "Idea round", value: "10 Oct, 10 AM – 4 PM, online" },
-        { label: "Showcase", value: "16 Oct, 1:00 PM, campus" },
+        { label: "Showcase", value: "16 Oct, 11:30 AM, campus" },
         { label: "Team", value: "1 – 4" },
       ],
       specs: [
@@ -343,8 +343,8 @@ export const events = [
       brief:
         "Dream Forge 3.0 ignites the problem-solving and entrepreneurial mindset. It opens with an online quiz on business, innovation and current affairs (team leader only), then qualified teams receive a real-world business problem on the spot, prepare a PPT and pitch it to the jury the same day.",
       facts: [
-        { label: "Quiz", value: "10 Oct, 10 AM – 4 PM, online" },
-        { label: "Finals", value: "16 Oct, 11:00 AM, campus" },
+        { label: "Quiz", value: "10 Oct, 10:00 AM – 4 PM, online" },
+        { label: "Finals", value: "16 Oct, 11:30 AM, campus" },
         { label: "Team", value: "1 – 4" },
       ],
       specs: [
@@ -369,7 +369,7 @@ export const events = [
           checkpoint: "16 Oct",
         },
       ],
-      closesAt: "15 October 2026",
+      closesAt: "13 October 2026",
     },
   },
   {
@@ -391,8 +391,8 @@ export const events = [
       brief:
         "DataHeist is a four-hour CTF × machine-learning challenge: teams crack a series of challenges to uncover datasets, identify which data is useful, and build the best predictive model for a real-world problem. An online quiz on ML, basic CTF and statistics gates the offline round.",
       facts: [
-        { label: "Quiz", value: "13 Oct, 10 AM – 4 PM, online" },
-        { label: "Finals", value: "16 Oct, 11:00 AM" },
+        { label: "Quiz", value: "14 Oct, 10 AM – 4 PM, online" },
+        { label: "Finals", value: "16 Oct, 11:30 AM" },
         { label: "Team", value: "1 – 3" },
       ],
       specs: [
