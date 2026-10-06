@@ -25,6 +25,7 @@ export const events = [
     number: 1,
     title: "Tech Grand Prix",
     tag: "Flagship",
+    campus: "GTBIT",
     featured: true,
     tagline: "F1-style tech treasure hunt",
     subtitle:
@@ -74,6 +75,7 @@ export const events = [
     number: 2,
     title: "HackSprint",
     tag: "Hackathon",
+    campus: "GTBIT",
     tagline: "6-hour build-to-deploy sprint",
     subtitle:
       "A 6-hour hackathon taking teams from ideation to a working web app — with a surprise mid-race challenge that forces you to rethink and adapt.",
@@ -126,6 +128,7 @@ export const events = [
     number: 3,
     title: "The Code Voyage",
     tag: "Coding",
+    campus: "GTBIT",
     tagline: "Pirate-themed coding battle",
     subtitle:
       "Two rounds — navigate a grid-based problem in pseudocode, then battle through a high-stakes technical bidding round where every decision shapes the score.",
@@ -165,6 +168,7 @@ export const events = [
     number: 4,
     title: "Takeshi's Bots: Robo Maze",
     tag: "Robotics",
+    campus: "GTBIT",
     tagline: "Autonomous maze navigation",
     subtitle:
       "A fully autonomous robot navigates a covered 3 × 3 m maze — three attempts, five minutes each, fastest clean run conquers the castle.",
@@ -205,6 +209,7 @@ export const events = [
     number: 5,
     title: "Overdrive: Robo Race",
     tag: "Robotics",
+    campus: "GTBIT",
     tagline: "F1-style rover race",
     subtitle:
       "Wireless rovers race a Melbourne F1-style track with ramps, rollers, gravel pits and airborne sections — three laps per attempt, two attempts per team.",
@@ -248,6 +253,7 @@ export const events = [
     number: 6,
     title: "Dohyo: Robo Sumo",
     tag: "Robotics",
+    campus: "GTBIT",
     tagline: "Head-to-head robo combat",
     subtitle:
       "Two remote-controlled bots in a circular arena — push the opponent out or immobilise it across two-minute knockout matches.",
@@ -287,6 +293,7 @@ export const events = [
     number: 7,
     title: "TinkerCase 4.0",
     tag: "Hardware",
+    campus: "DTU",
     tagline: "Hardware showcase & core electronics",
     subtitle:
       "IEEE DTU's hardware showcase: submit your idea online in a four-slide deck, then bring a fully assembled project to the on-campus showcase.",
@@ -329,6 +336,7 @@ export const events = [
     number: 8,
     title: "Dream Forge 3.0",
     tag: "Case Study",
+    campus: "DTU",
     tagline: "Real-world case study challenge",
     subtitle:
       "A case competition where teams solve a real-world business problem on the spot — online quiz, case breakdown, then a jury pitch.",
@@ -377,6 +385,7 @@ export const events = [
     number: 9,
     title: "DataHeist",
     tag: "CTF & ML",
+    campus: "DTU",
     tagline: "4-hour CTF × ML challenge",
     subtitle:
       "Crack a chain of challenges to uncover and validate datasets, then build the best predictive model for a real-world problem — all in four hours.",
