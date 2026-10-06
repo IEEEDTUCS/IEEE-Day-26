@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .container {
+    width: 600px;
+    overflow-x: auto;
+    display: flex;
+    white-space: nowrap;
+    border: 1px solid black;
+    scrollbar-width: none;
+  }
+  .container::-webkit-scrollbar { display: none; }
+  .item {
+    width: 200px;
+    height: 100px;
+    flex-shrink: 0;
+    background: red;
+    margin-right: 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="container" id="c">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div>
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div>
+  </div>
+  <script>
+    const c = document.getElementById('c');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    c.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - c.offsetLeft;
+      scrollLeft = c.scrollLeft;
+    });
+    c.addEventListener('mouseleave', () => { isDown = false; });
+    c.addEventListener('mouseup', () => { isDown = false; });
+    c.addEventListener('mousemove', (e) => {
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - c.offsetLeft;
+      const walk = (x - startX) * 2;
+      c.scrollLeft = scrollLeft - walk;
+    });
+
+    function loop() {
+      if(!isDown) {
+         c.scrollLeft += 1;
+         if (c.scrollLeft >= c.scrollWidth / 2) {
+           c.scrollLeft = 0;
+         }
+      }
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+</body>
+</html>
