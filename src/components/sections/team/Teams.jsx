@@ -11,15 +11,17 @@ import { gsap, eases, useReducedMotion } from "../../../motion";
 import { teamMembers, teamSection } from "../../../content";
 import { TeamCard } from "./TeamCard";
 import { Play, Pause } from "lucide-react";
-import {gtbitTeam} from "../../../content/team.js";
+import { gtbitTeam } from "../../../content/team.js";
+import { useDraggableMarquee } from "../../../hooks";
 
 const HEADING_ID = "team-heading";
 
 export function Teams() {
   const scope = useRef(null);
-  const trackRef = useRef(null);
   const reduced = useReducedMotion();
   const [isPaused, setIsPaused] = useState(false);
+  const dtuMarqueeRef = useDraggableMarquee(isPaused, 1);
+  const gtbitMarqueeRef = useDraggableMarquee(isPaused, 1);
 
   // GSAP entrance animation
   useGSAP(
@@ -171,10 +173,10 @@ export function Teams() {
       {/* ─── FULL-BLEED INFINITE MARQUEE TRACK (NO GAPS) ─── */}
       <div
         data-team-marquee
-        className="team-marquee-container w-full overflow-hidden pt-2 pb-6"
+        ref={dtuMarqueeRef}
+        className="team-marquee-container w-full pt-2 pb-6"
       >
         <div
-          ref={trackRef}
           className={`team-marquee-track flex ${isPaused ? "is-paused" : ""}`}
         >
           {/* First Set of Members */}
@@ -205,10 +207,10 @@ export function Teams() {
         {/*gtbit marquee*/}
         <div
             data-team-marquee
-            className="team-marquee-container w-full overflow-hidden pt-2 pb-6"
+            ref={gtbitMarqueeRef}
+            className="team-marquee-container w-full pt-2 pb-6"
         >
             <div
-                ref={trackRef}
                 className={`team-marquee-track flex ${isPaused ? "is-paused" : ""}`}
             >
                 {/* First Set of Members */}
