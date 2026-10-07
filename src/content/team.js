@@ -30,7 +30,7 @@ export const teamMembers = [
   },
   {
     id: "jitendra-kumar-singh",
-    image: "jitendra_kumar_singh.jpg",
+    image: "jitendra_kumar_singh.jpeg",
     name: "Jitendra Kumar Singh",
     role: "General Secretary",
     instagram: "https://www.instagram.com/18jitendra_/",
@@ -38,7 +38,7 @@ export const teamMembers = [
   },
   {
     id: "dhruv-chiripal",
-    image: "dhruv_chiripal.jpg",
+    image: "dhruv_chiripal.jpeg",
     name: "Dhruv Chiripal",
     role: "Joint Secretary",
     instagram: "https://www.instagram.com/dhruv.chiripal/",
@@ -46,7 +46,7 @@ export const teamMembers = [
   },
   {
     id: "aditya-tiwari",
-    image: "aditya_tiwari.jpg",
+    image: "aditya_tiwari.jpeg",
     name: "Aditya Tiwari",
     role: "Joint Secretary",
     instagram: "https://www.instagram.com/adityatiwari_in/",
@@ -86,7 +86,7 @@ export const teamMembers = [
   },
   {
     id: "shashwat-jha",
-    image: "shashwat_jha.jpg",
+    image: "shashwat_jha.jpeg",
     name: "Shashwat Jha",
     role: "Chairperson, PES-IAS",
     instagram: null,
@@ -110,7 +110,7 @@ export const teamMembers = [
   },
   {
     id: "sneha-meerwal",
-    image: "sneha_meerwal.png",
+    image: "sneha_meerwal.jpeg",
     name: "Sneha Meerwal",
     role: "Vice Chairperson, CASS",
     instagram: "https://www.instagram.com/snehameerwal/",
@@ -187,13 +187,13 @@ export const teamMembers = [
     role: "Head of Technical Affairs",
     instagram: "https://www.instagram.com/anonimbus31337/",
     linkedin: "https://www.linkedin.com/in/tarush-sonakya/",
-  },
+ },
 ];
 
 export const gtbitTeam = [
   {
     id: "gurasees-singh",
-    image: "Gurasees Singh - Treasurer and Student Advisor.jpg",
+    image: "Gurasees Singh - Treasurer and Student Advisor.jpeg",
     name: "Gurasees Singh",
     role: "Treasurer and Student Advisor",
     instagram: null,
@@ -201,7 +201,7 @@ export const gtbitTeam = [
   },
   {
     id: "gurprajas-kaur-saluja",
-    image: "Gurprajas Kaur Saluja - Chairperson.png",
+    image: "Gurprajas Kaur Saluja - Chairperson.jpeg",
     name: "Gurprajas Kaur Saluja",
     role: "Chairperson",
     instagram: null,
@@ -209,7 +209,7 @@ export const gtbitTeam = [
   },
   {
     id: "gurpratit-kaur-saluja",
-    image: "Gurpratit Kaur Saluja - WIE AG Chairperson.png",
+    image: "Gurpratit Kaur Saluja - WIE AG Chairperson.jpeg",
     name: "Gurpratit Kaur Saluja",
     role: "WIE AG Chairperson",
     instagram: null,
@@ -217,7 +217,7 @@ export const gtbitTeam = [
   },
   {
     id: "Maiesha-Mehra",
-    image: "Maiesha Mehra - General Secretary.png",
+    image: "Maiesha Mehra - General Secretary.jpeg",
     name: "Maiesha Mehra",
     role: "General Secretary",
     instagram: null,
@@ -225,7 +225,7 @@ export const gtbitTeam = [
   },
   {
     id: "Nakul-Chadda",
-    image: "Nakul Chadda - Joint Secretary.png",
+    image: "Nakul Chadda - Joint Secretary.jpeg",
     name: "Nakul Chadda",
     role: "Joint Secretary",
     instagram: null,
@@ -233,7 +233,7 @@ export const gtbitTeam = [
   },
   {
     id: "Prathamjot-Singh-Bharaj",
-    image: "Prathamjot Singh Bharaj - Vice Chairperson.png",
+    image: "Prathamjot Singh Bharaj - Vice Chairperson.jpeg",
     name: "Prathamjot Singh Bharaj",
     role: "Vice Chairperson",
     instagram: null,
@@ -241,7 +241,7 @@ export const gtbitTeam = [
   },
   {
     id: "Ratti-Noor-Singh",
-    image: "Ratti Noor Singh - CS Chapter Chairperson.png",
+    image: "Ratti Noor Singh - CS Chapter Chairperson.jpeg",
     name: "Ratti Noor Singh",
     role: "CS Chapter Chairperson",
     instagram: null,
