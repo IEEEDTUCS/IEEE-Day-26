@@ -69,7 +69,7 @@ export function SiteNav() {
         ref={barRef}
         className="container-page flex items-center justify-between gap-4 py-4 xl:py-4.5"
       >
-        <BrandMark />
+        <BrandMark onNavigate={() => setMobileMenuOpen(false)} />
 
         {/* Desktop Navigation */}
         <nav
@@ -100,30 +100,30 @@ export function SiteNav() {
           })}
         </nav>
 
-        {/* Desktop CTA Action Button - takes straight to footer */}
-        <div className="hidden shrink-0 items-center gap-4 lg:flex xl:gap-5">
-          <span aria-hidden="true" className="h-9 w-px bg-silver xl:h-12" />
-          <HostMarks />
-          <span aria-hidden="true" className="h-9 w-px bg-silver xl:h-12" />
+        {/* Right side: Host marks, CTA, and Mobile menu toggle */}
+        <div className="flex shrink-0 items-center gap-3 lg:gap-4 xl:gap-5">
+          <span aria-hidden="true" className="hidden h-9 w-px bg-silver lg:block xl:h-12" />
+          <HostMarks onNavigate={() => setMobileMenuOpen(false)} />
+          <span aria-hidden="true" className="hidden h-9 w-px bg-silver lg:block xl:h-12" />
           <Button
             onClick={(e) => { e.preventDefault(); scrollToSection("register"); }}
             trailing="↗"
-            className="whitespace-nowrap cursor-pointer"
+            className="hidden whitespace-nowrap cursor-pointer lg:inline-flex"
           >
             Register
           </Button>
-        </div>
 
-        {/* Mobile Menu Toggle Button */}
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation menu"
-          aria-expanded={mobileMenuOpen}
-          className="grid h-11 w-11 place-items-center border border-charcoal text-charcoal transition-colors duration-(--duration-fast) hover:bg-charcoal hover:text-paper lg:hidden"
-        >
-          {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
-        </button>
+          {/* Mobile Menu Toggle Button */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+            className="grid h-11 w-11 place-items-center border border-charcoal text-charcoal transition-colors duration-(--duration-fast) hover:bg-charcoal hover:text-paper lg:hidden"
+          >
+            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Dropdown Menu */}

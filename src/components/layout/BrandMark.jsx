@@ -3,9 +3,10 @@ import { hosts } from "../../content";
 
 const [dtu] = hosts;
 
-export function BrandMark() {
+export function BrandMark({ onNavigate } = {}) {
   const handleClick = (e) => {
     e.preventDefault();
+    onNavigate?.();
     scrollToTop();
   };
 
@@ -29,7 +30,7 @@ export function BrandMark() {
           alt=""
           width={dtu.navMark.width}
           height={dtu.navMark.height}
-          className="h-11 w-auto object-contain transition-opacity duration-(--duration-fast) group-hover:opacity-70 lg:h-9 xl:h-11.5"
+          className="h-9 w-auto object-contain transition-opacity duration-(--duration-fast) group-hover:opacity-70 lg:h-9 xl:h-11.5"
         />
       </a>
       <span aria-hidden="true" className="hidden h-9 w-px bg-silver lg:block xl:h-12" />
