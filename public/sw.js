@@ -8,7 +8,7 @@ const STATIC_ASSETS = [
   '/favicon.ico',
   '/favicon.png',
   '/favicon-48x48.png',
-  '/favicon.svg',
+  '/IEEE_DTU_Logo.png',
   '/apple-touch-icon.png',
   '/icons/icon-192x192.png',
   '/icons/icon-512x512.png',
