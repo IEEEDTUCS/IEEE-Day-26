@@ -166,7 +166,7 @@ export const teamMembers = [
   },
   {
     id: "abhinay-sahai",
-    image: "abhinay_sahai.jpg",
+    image: "abhinay_sahai.jpeg",
     name: "Abhinay Sahai",
     role: "Head of Public Relations",
     instagram: "https://www.instagram.com/abhinay_sahai_/",
