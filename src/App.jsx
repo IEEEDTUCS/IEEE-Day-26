@@ -1,5 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SiteNav, Footer } from "./components/layout";
+import { InstallPrompt } from "./components/pwa";
 import {
   Hero,
   About,
@@ -35,6 +36,7 @@ export function App() {
       </main>
       <Footer />
       <Analytics />
+      <InstallPrompt />
     </div>
   );
 }
