@@ -2,7 +2,14 @@
 
 // base style is automatically applied to all buttons
 const base =
-  "group inline-flex items-center gap-2 px-7 py-3.5 text-label font-semibold uppercase tracking-button leading-none transition-colors duration-(--duration-fast)";
+  "group items-center gap-2 font-semibold uppercase leading-none transition-colors duration-(--duration-fast)";
+
+// size variants
+const sizes = {
+  default: "px-7 py-3.5 text-label tracking-button",
+  nav: "px-2.5 py-1.5 text-[11px] tracking-wider sm:px-3.5 sm:py-2 sm:text-xs lg:px-7 lg:py-3.5 lg:text-label lg:tracking-button",
+  sm: "px-3.5 py-2 text-xs tracking-button",
+};
 
 // Varients can be applied through props : variant
 const variants = {
@@ -30,6 +37,7 @@ const nudge = {
 
 export function Button({
   variant = "primary",
+  size = "default",
   href,
   trailing,
   // Which way `trailing` nudges when it is a node rather than one of the
@@ -39,7 +47,10 @@ export function Button({
   className = "",
   ...props //Extra props
 }) {
-  const classes = `${base} ${variants[variant]} ${className}`;
+  const hasDisplayOverride = /\b(hidden|block|flex|inline-block|grid)\b/.test(className);
+  const displayClass = hasDisplayOverride ? "" : "inline-flex";
+  const sizeClasses = sizes[size] ?? sizes.default;
+  const classes = `${base} ${displayClass} ${sizeClasses} ${variants[variant]} ${className}`.trim().replace(/\s+/g, " ");
   const direction = typeof trailing === "string" ? trailing : trailingDirection;
 
   const inner = (

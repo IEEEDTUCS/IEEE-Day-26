@@ -67,7 +67,7 @@ export function SiteNav() {
     >
       <div
         ref={barRef}
-        className="container-page flex items-center justify-between gap-4 py-4 xl:py-4.5"
+        className="container-page flex items-center justify-between gap-2 sm:gap-4 py-3 sm:py-4 xl:py-4.5"
       >
         <BrandMark onNavigate={() => setMobileMenuOpen(false)} />
 
@@ -101,14 +101,15 @@ export function SiteNav() {
         </nav>
 
         {/* Right side: Host marks, CTA, and Mobile menu toggle */}
-        <div className="flex shrink-0 items-center gap-3 lg:gap-4 xl:gap-5">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:gap-4 xl:gap-5">
           <span aria-hidden="true" className="hidden h-9 w-px bg-silver lg:block xl:h-12" />
           <HostMarks onNavigate={() => setMobileMenuOpen(false)} />
           <span aria-hidden="true" className="hidden h-9 w-px bg-silver lg:block xl:h-12" />
           <Button
+            size="nav"
             onClick={(e) => { e.preventDefault(); scrollToSection("register"); }}
             trailing="↗"
-            className="hidden whitespace-nowrap cursor-pointer lg:inline-flex"
+            className="whitespace-nowrap cursor-pointer"
           >
             Register
           </Button>
@@ -119,9 +120,13 @@ export function SiteNav() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
-            className="grid h-11 w-11 place-items-center border border-charcoal text-charcoal transition-colors duration-(--duration-fast) hover:bg-charcoal hover:text-paper lg:hidden"
+            className="grid h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 place-items-center border border-charcoal text-charcoal transition-colors duration-(--duration-fast) hover:bg-charcoal hover:text-paper shrink-0 cursor-pointer lg:hidden"
           >
-            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            {mobileMenuOpen ? (
+              <X className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+            ) : (
+              <Menu className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+            )}
           </button>
         </div>
       </div>
@@ -152,6 +157,19 @@ export function SiteNav() {
               );
             })}
           </nav>
+          <div className="mt-3 border-t border-silver pt-3">
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                scrollToSection("register");
+              }}
+              trailing="↗"
+              className="w-full justify-center cursor-pointer"
+            >
+              Register
+            </Button>
+          </div>
         </div>
       )}
     </header>
