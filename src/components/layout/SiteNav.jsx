@@ -106,11 +106,11 @@ export function SiteNav() {
           <HostMarks onNavigate={() => setMobileMenuOpen(false)} />
           <span aria-hidden="true" className="hidden h-9 w-px bg-silver lg:block xl:h-12" />
           <Button
-            onClick={(e) => { e.preventDefault(); scrollToSection("register"); }}
-            trailing="↗"
+            href="/certificates"
+            trailing="→"
             className="hidden whitespace-nowrap cursor-pointer lg:inline-flex"
           >
-            Register
+            Certificates
           </Button>
 
           {/* Mobile Menu Toggle Button */}
@@ -152,6 +152,16 @@ export function SiteNav() {
               );
             })}
           </nav>
+          <div className="pt-3">
+            <Button
+              href="/certificates"
+              trailing="→"
+              className="w-full justify-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Get Certificate
+            </Button>
+          </div>
         </div>
       )}
     </header>

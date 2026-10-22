@@ -1,3 +1,5 @@
+import { lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
 import { SiteNav, Footer } from "./components/layout";
 import {
   Hero,
@@ -13,7 +15,9 @@ import {
 import { useLenis, useScrollRefresh } from "./motion";
 import { useInitialScroll } from "./hooks";
 
-export function App() {
+const CertificateClaim = lazy(() => import("./pages/CertificateClaim"));
+
+function HomePage() {
   useLenis();
   useScrollRefresh();
   useInitialScroll();
@@ -34,5 +38,28 @@ export function App() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+export function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route
+        path="/certificates"
+        element={
+          <Suspense
+            fallback={
+              <div className="min-h-screen bg-charcoal text-paper flex flex-col items-center justify-center font-mono text-xs gap-3">
+                <div className="w-8 h-8 border-2 border-red border-t-transparent animate-spin" />
+                <span className="tracking-widest text-steel">LOADING CREDENTIAL DESK...</span>
+              </div>
+            }
+          >
+            <CertificateClaim />
+          </Suspense>
+        }
+      />
+    </Routes>
   );
 }
