@@ -1,12 +1,26 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Download, X, Share } from "lucide-react";
 
 export function InstallPrompt() {
   const [isOpen, setIsOpen] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [isIOS, setIsIOS] = useState(false);
+  const [isIOS] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return (
+      /iphone|ipad|ipod/.test(userAgent) &&
+      !window.MSStream &&
+      !window.chrome
+    );
+  });
   const [showIOSGuide, setShowIOSGuide] = useState(false);
-  const [isInstalled, setIsInstalled] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return (
+      window.matchMedia("(display-mode: standalone)").matches ||
+      window.navigator.standalone === true
+    );
+  });
 
   useEffect(() => {
     // 1. Check if app is already running in standalone PWA mode
@@ -15,19 +29,10 @@ export function InstallPrompt() {
       window.navigator.standalone === true;
 
     if (isStandaloneMode) {
-      setIsInstalled(true);
       return;
     }
 
-    // 2. Detect iOS device
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    const isIOSDevice =
-      /iphone|ipad|ipod/.test(userAgent) &&
-      !window.MSStream &&
-      !window.chrome;
-    setIsIOS(isIOSDevice);
-
-    // 3. Check dismiss cooldown from localStorage (cooldown: 3 days)
+    // 2. Check dismiss cooldown from localStorage (cooldown: 3 days)
     const dismissedAt = localStorage.getItem("ieee_day_pwa_dismissed");
     if (dismissedAt) {
       const daysSinceDismiss =
