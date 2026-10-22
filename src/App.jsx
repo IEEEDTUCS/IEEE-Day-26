@@ -1,6 +1,8 @@
+import { Analytics } from "@vercel/analytics/react";
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { SiteNav, Footer } from "./components/layout";
+import { InstallPrompt } from "./components/pwa";
 import {
   Hero,
   About,
@@ -37,6 +39,8 @@ function HomePage() {
         <RegisterCta />
       </main>
       <Footer />
+      <Analytics />
+      <InstallPrompt />
     </div>
   );
 }

@@ -23,7 +23,7 @@ export function HostMarks({ onNavigate } = {}) {
           alt=""
           width={gtbit.navMark.width}
           height={gtbit.navMark.height}
-          className="h-9 w-auto object-contain transition-opacity duration-(--duration-fast) group-hover:opacity-70 sm:h-10 xl:h-14"
+          className="h-7 sm:h-8 md:h-9 w-auto object-contain transition-opacity duration-(--duration-fast) group-hover:opacity-70 lg:h-9 xl:h-14"
         />
       </a>
       <img
