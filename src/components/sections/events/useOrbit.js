@@ -7,7 +7,7 @@ import { gsap, ScrollTrigger, eases, useReducedMotion } from "../../../motion";
 // (and its JSX default transform) from this value — change it in one place.
 export const ORBIT_TILT = -14;
 
-const REVOLUTION = 40; // seconds per full revolution
+const REVOLUTION = 25; // seconds per full revolution (faster spin)
 
 /**
  * Owns every piece of orbit motion for the Events section.

@@ -101,7 +101,9 @@ export function EventDossier({ event, onClose, returnFocusTo }) {
     <div
       ref={scrim}
       onClick={requestClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-charcoal/85 p-0 sm:p-6"
+      onWheel={(e) => e.stopPropagation()}
+      onTouchMove={(e) => e.stopPropagation()}
+      className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-charcoal/85 p-2 sm:p-6"
     >
       <div
         ref={panel}
@@ -109,13 +111,18 @@ export function EventDossier({ event, onClose, returnFocusTo }) {
         aria-modal="true"
         aria-labelledby="dossier-title"
         onClick={(e) => e.stopPropagation()}
-        className="relative max-h-[calc(100dvh-1rem)] w-full max-w-4xl overflow-y-auto border-2 border-charcoal bg-paper data-lenis-prevent sm:max-h-[calc(100dvh-3rem)]"
+        onWheel={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
+        className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-4xl overflow-y-auto overscroll-contain border-2 border-charcoal bg-paper data-lenis-prevent sm:max-h-[calc(100dvh-3rem)]"
       >
         {/* Header — red broadcast bar with chips */}
-        <div className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b-2 border-charcoal bg-red px-3 py-2.5 sm:px-4">
+        <div className="sticky top-0 z-20 flex items-center justify-between gap-3 border-b-2 border-charcoal bg-red px-3 py-2.5 sm:px-4">
           <div className="flex items-center gap-2">
             <span className="border border-white/30 bg-charcoal px-2.5 py-1 text-[11px] font-bold tabular leading-tight text-paper">
               #{number}
+            </span>
+            <span className="border border-white/30 bg-charcoal px-2.5 py-1 text-[10px] font-extrabold uppercase leading-tight tracking-[0.18em] text-silver">
+              {event.campus}
             </span>
             <span className="bg-paper px-2.5 py-1 text-[10px] font-bold uppercase leading-tight tracking-[0.18em] text-charcoal">
               {event.tag}
@@ -135,6 +142,10 @@ export function EventDossier({ event, onClose, returnFocusTo }) {
 
         {/* Meta strip */}
         <div className="flex flex-wrap items-center gap-x-6 gap-y-1.5 border-b-2 border-charcoal px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.16em] sm:px-6">
+          <span>
+            <span className="text-charcoal/60">Campus: </span>
+            <strong className="text-red">{event.campus}</strong>
+          </span>
           <span>
             <span className="text-charcoal/60">Circuit: </span>
             {d.circuit}
@@ -209,12 +220,21 @@ export function EventDossier({ event, onClose, returnFocusTo }) {
                   </p>
                 </div>
               ) : (
-                <div className="border-b-2 border-charcoal bg-charcoal px-4 py-3">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-silver">
+                <a
+                  href={event.register}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group block border-b-2 border-charcoal bg-charcoal px-4 py-3 transition-colors hover:bg-red-deep"
+                  aria-label={`Register for ${event.title} on Unstop`}
+                >
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-silver group-hover:text-paper">
                     Registration
                   </p>
-                  <p className="heading mt-1 text-2xl text-paper">Open on Unstop ↗</p>
-                </div>
+                  <p className="heading mt-1 flex items-center justify-between text-2xl text-paper group-hover:text-paper">
+                    <span>Open on Unstop</span>
+                    <span className="text-red-bright group-hover:text-paper">↗</span>
+                  </p>
+                </a>
               )}
 
               <ul className="divide-y divide-charcoal/15">
@@ -249,24 +269,24 @@ export function EventDossier({ event, onClose, returnFocusTo }) {
           {/* Scrutineering rounds */}
           {d.rounds?.length ? (
             <div className="border-2 border-charcoal">
-            <div className="border-b-2 border-charcoal bg-charcoal px-4 py-2.5">
-              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-paper">
-                Scrutineering rounds
-              </p>
-            </div>
-            <ol className="divide-y divide-charcoal/15">
-              {d.rounds.map((round) => (
-                <li key={round.id} className="flex items-center gap-4 px-4 py-3">
-                  <span className="shrink-0 bg-red px-2 py-1 text-[10px] font-bold leading-tight text-paper">
-                    {round.id}
-                  </span>
-                  <span className="flex-1 text-sm font-medium text-charcoal">{round.title}</span>
-                  <span className="shrink-0 text-[11px] font-bold uppercase tabular tracking-[0.12em] text-red">
-                    {round.checkpoint}
-                  </span>
-                </li>
-              ))}
-            </ol>
+              <div className="border-b-2 border-charcoal bg-charcoal px-4 py-2.5">
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-paper">
+                  Scrutineering rounds
+                </p>
+              </div>
+              <ol className="divide-y divide-charcoal/15">
+                {d.rounds.map((round) => (
+                  <li key={round.id} className="flex items-center gap-4 px-4 py-3">
+                    <span className="shrink-0 bg-red px-2 py-1 text-[10px] font-bold leading-tight text-paper">
+                      {round.id}
+                    </span>
+                    <span className="flex-1 text-sm font-medium text-charcoal">{round.title}</span>
+                    <span className="shrink-0 text-[11px] font-bold uppercase tabular tracking-[0.12em] text-red">
+                      {round.checkpoint}
+                    </span>
+                  </li>
+                ))}
+              </ol>
             </div>
           ) : null}
         </div>

@@ -1,13 +1,8 @@
 /**
  * One event card in the orbit — follows the design system's Event card spec
- * (docs/DESIGN_SYSTEM.md §5): paper tile, left red accent bar, number + type
+ * (docs/DESIGN_SYSTEM.md §5): paper tile, left red accent bar, number + campus + type
  * tag in the header, Montserrat 700 title, meta row with the Register link.
- * Hover: accent bar extends full height and the card lane-changes 2px right.
- *
- * Structure: the outer div carries the ring placement transform (its value is
- * constant — never make it dynamic or React will rewrite it over GSAP's live
- * rotation). A transparent full-card button opens the dossier; the Register
- * link sits above it so both stay clickable and tabbable.
+ * Hover: accent bar extends full height, card pauses orbit & pops out with shadow.
  */
 export function EventCard({ event, index, isFront, onFocus, onSelect }) {
   const number = String(event.number).padStart(2, "0");
@@ -25,8 +20,10 @@ export function EventCard({ event, index, isFront, onFocus, onSelect }) {
     >
       {/* Visual card */}
       <div
-        className={`relative flex h-full w-full flex-col overflow-hidden border-2 bg-paper transition-[transform,border-color] duration-(--duration-fast) ease-race group-hover:translate-x-[2px] group-focus-within:translate-x-[2px] ${
-          isFront ? "border-red" : "border-charcoal"
+        className={`relative flex h-full w-full flex-col overflow-hidden border-2 bg-paper transition-all duration-300 ease-race group-hover:scale-[1.05] group-hover:-translate-y-1.5 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.35)] ${
+          isFront
+            ? "border-red shadow-[0_10px_25px_rgba(197,18,22,0.2)]"
+            : "border-charcoal shadow-[0_8px_20px_rgba(0,0,0,0.18)]"
         }`}
       >
         {/* Left accent bar — extends to full height on hover/focus */}
@@ -39,10 +36,15 @@ export function EventCard({ event, index, isFront, onFocus, onSelect }) {
           }`}
         />
 
-        {/* Header: number + type tag */}
-        <span className="flex items-start justify-between gap-2 border-b border-charcoal/15 px-3.5 pb-2.5 pl-5 pt-3">
-          <span className="text-[13px] font-bold leading-none tabular text-red">
-            #{number}
+        {/* Header: number + campus badge + type tag */}
+        <span className="flex items-center justify-between gap-2 border-b border-charcoal/15 px-3.5 pb-2.5 pl-5 pt-3">
+          <span className="flex items-center gap-1.5">
+            <span className="text-[13px] font-bold leading-none tabular text-red">
+              #{number}
+            </span>
+            <span className="bg-charcoal px-1.5 py-0.5 text-[9px] font-bold uppercase leading-none tracking-[0.14em] text-paper">
+              {event.campus}
+            </span>
           </span>
           <span
             className={`px-2 py-1 text-[9px] font-bold uppercase leading-tight tracking-[0.16em] ${
@@ -66,7 +68,7 @@ export function EventCard({ event, index, isFront, onFocus, onSelect }) {
         {/* Meta row + Register */}
         <span className="flex items-center justify-between gap-2 border-t border-charcoal/15 px-3.5 pb-3 pl-5 pt-2.5">
           <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-charcoal/70">
-            {event.dateLabel} · {event.teamLabel}
+            {event.campus} · {event.dateLabel} · {event.teamLabel}
           </span>
           <a
             href={event.register}

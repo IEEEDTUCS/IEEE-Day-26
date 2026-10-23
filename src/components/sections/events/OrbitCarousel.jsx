@@ -20,7 +20,13 @@ const CARD_SIZES = {
  *   the live rotation.
  * - Radius derives from card width and count so the ring never self-intersects.
  */
-export function OrbitCarousel({ ringRef, events, front, onSelect, onFocusCard }) {
+export function OrbitCarousel({
+  ringRef,
+  events,
+  front,
+  onSelect,
+  onFocusCard,
+}) {
   const large = useMediaQuery("(min-width: 768px)");
   const { w: cardW, h: cardH } = large ? CARD_SIZES.large : CARD_SIZES.small;
 
