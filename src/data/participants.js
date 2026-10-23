@@ -688,5 +688,685 @@ export const PARTICIPANTS = [
         name: "Bhargavi malla",
         email: "bhargavimalla06@gmail.com",
         event: "dreamforge"
-    }
+    },
+        {
+            name: "Shruti Chaudhary",
+            email: "shrutiic2@gmail.com",
+            event: "dataheist"
+        },
+            {
+                name: "Varun Kumar",
+                email: "varunkumarboss7766@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Udit Das",
+                email: "uditdas006@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Nandini Chauhan",
+                email: "nandinic280@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Iram Masood",
+                email: "irammasood083@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Riya Tyagi",
+                email: "triya9190@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Mahak Tyagi",
+                email: "mahaktyagi241@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Anshika Sahu",
+                email: "anshikasahu330@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Riya Pandey",
+                email: "riyapandey10050@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Dhruv Gandhi",
+                email: "gandhidhruv707@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Aavika Bhatt",
+                email: "bhatt.aavika1405@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Priyanshu Chaudhary",
+                email: "jaatpriyanshu1313@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Vinita Katara",
+                email: "kataravinita3@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Nihal",
+                email: "nihal07b@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Aman kumar",
+                email: "aman9999196149@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Saumya Verma",
+                email: "sv9429859@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "AARINI Rai Baranwal",
+                email: "aarinirb2@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Sudhanshu Pratap Singh",
+                email: "sudhanshupratap111@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Sunit Majhi",
+                email: "sunitmajhi3@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Arihant Jain",
+                email: "arihant123j@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Som Shukla",
+                email: "10vishnushukla@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Abhishek Verma",
+                email: "abhiverma0608@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Aditya Patel",
+                email: "adityapatelp34@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Aditya Upadhyay",
+                email: "adityaupadhya909@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Daksh Sengar",
+                email: "mansionjoker22@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ronit Singh",
+                email: "next.ronitsingh21@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Satyam Chaurasia",
+                email: "sc21082008@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Gaurav Dahiya",
+                email: "gauravdahiya.gd.87@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Jai Goyal",
+                email: "jaip4315@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Om Tapas",
+                email: "utyutyasus@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Utkarsh Bharadwaj",
+                email: "utkarshbharadwaj25@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ananya Joshi",
+                email: "ananyajoshi.cseai@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Saptarshi Datta",
+                email: "saptarshidatta28@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Maanas Verma",
+                email: "vermamaanas5@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Aryan Gupta",
+                email: "anakinkenobi1010@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ayush Ayush",
+                email: "ayushdalal291206@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Govind Khandelwal",
+                email: "govindkhandelwal04102006@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "ADITYA GUPTA",
+                email: "gaditya2222@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Anshul Gupta",
+                email: "anshul.gupta2684@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "SHREYA BANSAL",
+                email: "shreyabansal1101@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "SHREYA RANI",
+                email: "sr.shreya19@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Khushi Gupta",
+                email: "khushigupta29.bbs@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Amandeep Gupta",
+                email: "amanguptawork01@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Genius Vishwakarma",
+                email: "geniusvishwakarma159@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Shaurya Jeet Singh",
+                email: "singhshaurya9599@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Prisha Dwivedi",
+                email: "prisha18.in@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Devesh Malik",
+                email: "deveshmalik006@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Madhav Gera",
+                email: "geramadhav2006@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Mrinal Parida",
+                email: "paridamprinal@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Divij Malhotra",
+                email: "divijmalhotra0112@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ayush Kumar Thakur",
+                email: "ayushthakur9b@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "NAYNIKA Rani",
+                email: "naynikarani@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Yash Mishra",
+                email: "yashmishra120108@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Akshat Bhati",
+                email: "akshatandatharvbhati@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Mrinal meena",
+                email: "mrinalmeena25@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Hasan Raza",
+                email: "hasanraza1112211@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Mallika Srivastav",
+                email: "mallikasrivastav256@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ansh Goswami",
+                email: "apgoswami3107@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ambuj Anand",
+                email: "aambuj42@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ishaan Anand",
+                email: "ishaananand07@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Avin Shrivastava",
+                email: "shrivastava.avin@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Hemant Sachdeva",
+                email: "hemantsachdeva13@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Vedika Pandey",
+                email: "vedika.pandey06@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Vandita Parasher",
+                email: "parashervandita@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "SHUBHI SHARMA",
+                email: "shubhisharmampgs@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Raghuvansh Goel",
+                email: "raghuvanshgoel2006@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Aryan Mehra",
+                email: "dishoom116017@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "MAYANK GARG",
+                email: "gargm0601@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "SHRISTI SINGHAL",
+                email: "ix.c.shristisinghal@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Sparsh Maurya",
+                email: "mauryasparsh2006@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ravi Shanker Umrao SINGHAL",
+                email: "itsvravishanker@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ananya Jain",
+                email: "jainananya6907@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Prakhar Bansal",
+                email: "bprakhar08@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Arshiya Khan",
+                email: "arshiyakhan7794@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Divyanshi Khatri",
+                email: "divyanshiwork269@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ansh Arora",
+                email: "iamrealansharora@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Akshra Patiyal",
+                email: "patiyalakshra@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Nandini Pandey",
+                email: "npnandini2007@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Rajhans Ranjan",
+                email: "rajhans7678@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Rajni",
+                email: "rajnicsda@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Yash Bhalla",
+                email: "yashbhalla29@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Yash Daksh",
+                email: "dakshyash2@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "VIRAJ VIRAJ",
+                email: "virajdabas7@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Suryansh kumar",
+                email: "suryanshg511@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Srijal Kumar",
+                email: "srijalkumar24@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Shivank Mavi",
+                email: "kavitashivank15210@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Khushal Aggarwal",
+                email: "khushal2009aggarwal@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Nitin Dugar",
+                email: "dugarnitin180@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "KARTIK CHAWLA",
+                email: "kartikchawla321@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ashutosh",
+                email: "ashu2005avi@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Saanvi Gupta",
+                email: "saanvig567@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Manas Gupta",
+                email: "guptamanas657@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Priyanshu parashar",
+                email: "priyanshuparashar158@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Medha Mittal",
+                email: "medha.mittal18@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Somya Bansal",
+                email: "somyabansl202@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Shaurya Goel",
+                email: "talktoshaurya@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Yashi Saini",
+                email: "yashisaini23@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Roshni Sah",
+                email: "sahroshni957@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Saksham Singh Sachan",
+                email: "sssachan2009@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Ravikant Jaiswar",
+                email: "jaiswarravichandra@gmail.com",
+                event: "dataheist"
+            },
+            {
+                name: "Sarthak Agnihotri",
+                email: "sarthakagnihotri877@gmail.com",
+                event: "dataheist"
+            },
+        {
+            name: "Kothari Ronit",
+            email: "ronitkothari22@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Amit Kumar Kumar",
+            email: "a3110k2004@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Het Pastagia",
+            email: "hetpastagia08@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Suvan Kumar",
+            email: "suvankumar_me24b13_074@dtu.ac.in",
+            event: "dataheist"
+        },
+        {
+            name: "Harsh Yadav",
+            email: "harshyadav0682025@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Rasleen Kaur",
+            email: "rasleen2711@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Bhoomi Verma",
+            email: "bverma_be24@thapar.edu",
+            event: "dataheist"
+        },
+        {
+            name: "Aarushi Thakur",
+            email: "athakur_be24@thapar.edu",
+            event: "dataheist"
+        },
+        {
+            name: "Aditya Mittal",
+            email: "adityamittal568@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Japesh Babbar",
+            email: "japeshbabbar63@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Teghnoor Kaur",
+            email: "teghnoork@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Aryan Pandey",
+            email: "aryannp049@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Pushkar",
+            email: "pushkar3y@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Ryan Verma",
+            email: "ryanverma1111@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Dakshita Malik",
+            email: "dakshita1602@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Aaditi Bhagawan",
+            email: "dhatribhagawan@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Nidhi Aggarwal",
+            email: "nidhiaggarwal369@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Aujasvi Raj Singh",
+            email: "aujasvirajadi95@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Moksh Gola",
+            email: "mokshgola36@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Sidhi",
+            email: "sidhibansal0@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Kuvlay Naman",
+            email: "nkuvlay@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Shashank Mehta",
+            email: "shashankmehta2000@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Priyanshu Garg",
+            email: "priyanshugarg9310@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Aditya Kumar",
+            email: "adityakumarnara@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Rudra Pal",
+            email: "rudrapal500@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Misba Rahman",
+            email: "misbably7002@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Divyam Bhasin",
+            email: "divyambhasin5@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Yash Jindal",
+            email: "yashjindal057@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Priyangshu Borah",
+            email: "priyangshuborah@outlook.com",
+            event: "dataheist"
+        },
+        {
+            name: "Aayuush Mehta",
+            email: "aayuush2007mehta@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Yash Verma",
+            email: "yash.verma.28@pm.me",
+            event: "dataheist"
+        },
+        {
+            name: "Suchir Verma",
+            email: "suchirverma033@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Pranav Verma",
+            email: "pranavverma4851@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Vinay Bainsla",
+            email: "vinaybainsla68@gmail.com",
+            event: "dataheist"
+        },
+        {
+            name: "Satyam Kumar",
+            email: "satyam.shah.425913@gmail.com",
+            event: "dataheist"
+        },
 ];
